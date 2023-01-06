@@ -8,6 +8,13 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<form action="HelloServlet">
+    <button name="button" value="login">Login
+    </button>
+    <button name="button" value="registrazione">Registrazione
+    </button>
+</form>
+
+</button>
 </body>
 </html>

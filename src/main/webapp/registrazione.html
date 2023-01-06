@@ -143,7 +143,7 @@
 <body>
 
     <div class="container position-absolute col-md-8 start-50 top-50 translate-middle mx-auto">
-    <form action="" method="post" id="myForm">
+    <form action="RegistrazioneServlet" method="post" id="myForm">
         <div class="row">
             <div class="col-lg-6 p-4 left-content bg-white">
                 <img src="resources/img/img-l.png" class="img-fluid left-img" alt="">
@@ -164,6 +164,10 @@
                 </div>
 
                 <div class="my-4">
+                    <input type="text" name="username" placeholder="Username" class="form-control rounded-pill shadow-none p-2" id="username">
+                </div>
+
+                <div class="my-4">
                     <input type="email" name="email" placeholder="Email" class="form-control rounded-pill shadow-none p-2" id="email">
                 </div>
 
@@ -178,6 +182,14 @@
                 <div class="my-4">
                     <label style="color: white">Birthday date</label>
                     <input type="date" name="birthday"  placeholder="Birthday date" class="form-control rounded-pill shadow-none p-2" id="birthday" required>
+                </div>
+
+                <div class="my-4">
+                    <input type="text" name="phone" placeholder="Phone" class="form-control rounded-pill shadow-none p-2" id="phone">
+                </div>
+
+                <div class="my-4">
+                    <input type="text" name="gender" placeholder="Genere" class="form-control rounded-pill shadow-none p-2" id="gender">
                 </div>
                 
                 <div class="my-4">

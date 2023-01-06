@@ -18,14 +18,14 @@
                 <div class="col-md-6">
                   <div class="m-5 text-center"><h1>Welcome!</h1></div>
 
-                  <form class="m-5">
+                  <form action="LoginServlet" method="post" class="m-5">
                     <div class="mb-3">
-                      <label class="form-label" id="username" for="username">Email</label>
-                      <input class="form-control" type="text" id="email" />
+                      <label class="form-label" id="emailLabel" for="email">Email</label>
+                      <input class="form-control" type="text" id="email" name="email"/>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="password">Password</label>
-                      <input class="form-control" type="password" id="password"/>
+                      <input class="form-control" type="password" id="password" name="password"/>
                     </div>
                     <div class="row mb-3">
                       <div class="col-6">
@@ -38,7 +38,7 @@
 
                     <div class="">
                       <input type="submit" value="Login" class="form-control btn btn-primary mt-3"/>
-                      <button class="form-control btn btn-primary mt-3" href="#">Sign up</button>
+                      <button class="form-control btn btn-primary mt-3" value="register" name="buttonRegister" href="registrazione.html">Sign up</button>
                     </div>
                   </form>
                 </div>
