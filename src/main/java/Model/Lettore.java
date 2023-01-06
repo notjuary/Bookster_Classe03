@@ -1,12 +1,11 @@
 package Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Lettore {
 
-
     private String username, psw,nome, cognome,email,telefono, genere;
-    private java.sql.Date ddn;
+    private Date ddn;
     private int punteggio;
 
     public String getUsername() {
@@ -65,7 +64,7 @@ public class Lettore {
         this.genere = genere;
     }
 
-    public java.sql.Date getDdn() {
+    public Date getDdn() {
         return ddn;
     }
 

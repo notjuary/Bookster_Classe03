@@ -11219,3 +11219,33 @@ textarea.form-control-lg {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
+
+body{
+  background-color: #eaedf2 !important;
+}
+
+.right-content{
+  background-color: #1f2cd2;
+  border-top-right-radius: 20px;
+}
+
+.left-content{
+  border-bottom-left-radius: 20px !important;
+
+}
+
+.left-img{
+  background-size: cover !important;
+  object-fit: cover !important;
+  min-height: 100%;
+}
+
+.btn-register{
+  background-color: #ff4033 !important;
+  border-top-right-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.btn-register:hover{
+  background-color: #ff4033;
+}
