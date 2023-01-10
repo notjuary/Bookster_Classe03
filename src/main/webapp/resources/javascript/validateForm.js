@@ -10,6 +10,14 @@ function validateForm() {
     var password = document.getElementById('password').value;
     var confirmPassword = document.getElementById('confirmPassword').value;
 
+    var phone = document.getElementById('phone').value;
+
+    var username = document.getElementById('username').value;
+
+    var currentYear = new Date().getFullYear();
+    var birthYear = new Date(dateOfBirth).getFullYear();
+    var age = currentYear - birthYear;
+
     if (name.length < 2 || name.length > 30 || lastName.length < 2 || lastName.length > 30) {
         alert('La lunghezza del campo nome e cognome deve essere compresa tra 2 e 30 caratteri');
         return false;
@@ -19,10 +27,6 @@ function validateForm() {
         alert('Devi selezionare una data di nascita');
         return false;
     }
-
-    var currentYear = new Date().getFullYear();
-    var birthYear = new Date(dateOfBirth).getFullYear();
-    var age = currentYear - birthYear;
 
     if (age < 12) {
         alert('Devi avere almeno 12 anni');
@@ -37,6 +41,35 @@ function validateForm() {
 
     if (!isValidEmail(email)) {
         alert('Indirizzo email non valido');
+        return false;
+    }
+
+    function validatePhoneNumber(phoneNumber) {
+        var phoneRegex = /^\d{1,20}$/;
+        return phoneRegex.test(phoneNumber);
+    }
+
+    if (!validatePhoneNumber(phone)) {
+        alert('Numero di telefono non valido');
+        return false;
+    }
+
+    function validateUsername(userName) {
+        var usernameRegex = /^[a-zA-Z0-9]{1,20}$/;
+        return usernameRegex.test(userName);
+    }
+
+    if (!validateUsername(username)) {
+        alert('Username non valido');
+        return false;
+    }
+
+    function hasNumber(password) {
+        for (var i = 0; i < password.length; i++) {
+            if (password[i] >= '0' && password[i] <= '9') {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -56,15 +89,6 @@ function validateForm() {
 
     if (!hasUppercaseLetter(password)) {
         alert('La password deve contenere almeno una lettera maiuscola');
-        return false;
-    }
-
-    function hasNumber(password) {
-        for (var i = 0; i < password.length; i++) {
-            if (password[i] >= '0' && password[i] <= '9') {
-                return true;
-            }
-        }
         return false;
     }
 
