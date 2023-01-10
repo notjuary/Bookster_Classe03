@@ -91,7 +91,7 @@ public class RegistrazioneServlet extends HttpServlet {
 
         boolean isEqual = password.equals(confirmPassword);
 
-        if (!hasNumber || !hasLength || !hasSpecialChatacters || !hasUpperCase) {
+        if (!hasNumber || !hasLength || !hasSpecialChatacters || !hasUpperCase || !isEqual) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
             dispatcher.forward(request, response);
         }

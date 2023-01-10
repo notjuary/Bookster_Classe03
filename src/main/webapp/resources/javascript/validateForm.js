@@ -1,22 +1,22 @@
 function validateForm() {
 
-    var name = document.getElementById('firstName').value;
-    var lastName = document.getElementById('lastName').value;
+    let name = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
 
-    var dateOfBirth = document.getElementById('birthday').value;
+    let dateOfBirth = document.getElementById('birthday').value;
 
-    var email = document.getElementById('email').value;
+    let email = document.getElementById('email').value;
 
-    var password = document.getElementById('password').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('confirmPassword').value;
 
-    var phone = document.getElementById('phone').value;
+    let phone = document.getElementById('phone').value;
 
-    var username = document.getElementById('username').value;
+    let username = document.getElementById('username').value;
 
-    var currentYear = new Date().getFullYear();
-    var birthYear = new Date(dateOfBirth).getFullYear();
-    var age = currentYear - birthYear;
+    let currentYear = new Date().getFullYear();
+    let birthYear = new Date(dateOfBirth).getFullYear();
+    let age = currentYear - birthYear;
 
     if (name.length < 2 || name.length > 30 || lastName.length < 2 || lastName.length > 30) {
         alert('La lunghezza del campo nome e cognome deve essere compresa tra 2 e 30 caratteri');
@@ -45,7 +45,7 @@ function validateForm() {
     }
 
     function validatePhoneNumber(phoneNumber) {
-        var phoneRegex = /^\d{1,20}$/;
+        const phoneRegex = /^\d{1,20}$/;
         return phoneRegex.test(phoneNumber);
     }
 
@@ -55,7 +55,7 @@ function validateForm() {
     }
 
     function validateUsername(userName) {
-        var usernameRegex = /^[a-zA-Z0-9]{1,20}$/;
+        const usernameRegex = /^[a-zA-Z0-9]{1,20}$/;
         return usernameRegex.test(userName);
     }
 
@@ -65,7 +65,7 @@ function validateForm() {
     }
 
     function hasNumber(password) {
-        for (var i = 0; i < password.length; i++) {
+        for (let i = 0; i < password.length; i++) {
             if (password[i] >= '0' && password[i] <= '9') {
                 return true;
             }
@@ -79,7 +79,7 @@ function validateForm() {
     }
 
     function hasUppercaseLetter(password) {
-        for (var i = 0; i < password.length; i++) {
+        for (let i = 0; i < password.length; i++) {
             if (password[i] >= 'A' && password[i] <= 'Z') {
                 return true;
             }
@@ -99,7 +99,7 @@ function validateForm() {
 
     function hasSpecialCharacter(password) {
         const specialCharacters = '$!-_#*';
-        for (var i = 0; i < password.length; i++) {
+        for (let i = 0; i < password.length; i++) {
             if (specialCharacters.indexOf(password[i]) !== -1) {
                 return true;
             }
