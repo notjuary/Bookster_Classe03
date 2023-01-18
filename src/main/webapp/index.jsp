@@ -20,6 +20,8 @@
 <a href="login.html">Login</a>
 <br>
 <a href="registrazione.html">Registrazione</a>
+<br>
+<a href="${pageContext.request.contextPath}/SearchServlet">Avvia</a>
 
 </body>
 </html>
