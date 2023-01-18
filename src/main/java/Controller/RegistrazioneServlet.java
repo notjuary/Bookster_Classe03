@@ -116,6 +116,7 @@ public class RegistrazioneServlet extends HttpServlet {
             LettoreDAO.doRegistrazione(l);
             HttpSession session = request.getSession();
             session.setAttribute("lettore", l);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 }

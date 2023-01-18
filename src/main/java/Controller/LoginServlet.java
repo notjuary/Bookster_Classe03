@@ -7,6 +7,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 @WebServlet( value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -14,11 +15,19 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if(request.getParameter("email") != null && request.getParameter("password") != null) {
-           Lettore lettore = LettoreDAO.doLogin(request.getParameter("email"), request.getParameter("password"));
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-           if(lettore != null)
-               request.getRequestDispatcher("index.jsp").forward(request, response);
+        final Pattern EMAIL_REGEX = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+        if (!EMAIL_REGEX.matcher(email).matches()) {
+            request.getRequestDispatcher("login.html").forward(request, response);
+        }
+
+        else {
+            Lettore l = LettoreDAO.doLogin(email, password);
+            HttpSession session = request.getSession();
+            session.setAttribute("lettore", l);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
        }
     }
 }
