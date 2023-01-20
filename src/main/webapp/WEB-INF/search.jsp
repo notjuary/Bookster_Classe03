@@ -15,9 +15,11 @@
             Book book = list.get(i);
     %>
 
-    <%= list.toString() %>
+    <div><%= book.toString() %></div>
 
     <% } %>
+
+
 
 </body>
 </html>
