@@ -27,6 +27,8 @@ public class SearchServlet extends HttpServlet {
 
         String typeSearch = request.getParameter("typeSearch");
         String parameter = request.getParameter("parameter").replace(" ", "%20");
+        //Commento per Teo, per prendere il parametro dalla barra di ricerca usa:
+        // String parameter = request.getParameter("searchBar");
 
         URL url;
 

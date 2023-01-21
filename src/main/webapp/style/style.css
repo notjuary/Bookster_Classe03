@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root{
+    --ff-family: 'Roboto', sans-serif;
+    --ff-family-secondary: 'Be Vietnam Pro', sans-serif;
+
+    --color-100: rgb(255, 255, 255);
+    --color-300: rgb(253, 232, 233);
+    --color-500: rgb(227, 186, 198);
+    --color-700: rgb(188, 158, 193);
+    --color-700-transparent: rgb(188, 158, 193, 50%);
+    --color-800: rgb(89, 100, 117);
+    --color-800-transparent: rgb(89, 100, 117, 50%);
+    --color-900: rgb(31, 34, 50);
+    --color-900-transparent: rgb(31, 34, 50, 50%);
+    --color-red: rgb(255, 0, 0);
+    --color-red-transparent: rgba(255, 0, 0, 50%);
+    --color-confirm: rgb(71, 160, 37);
+    --color-confirm-transparent: rgba(71, 160, 37, 50%);
+}
+
+html, body {
+    height: 100%;
+}
+
+main{
+    min-height: 80%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    transition: all 0.2s linear;
+    font-family: var(--ff-family);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-700);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-900);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-800);
+}
+
+.orangeUnderline{
+    text-decoration: underline var(--color-900) 2px;
+}
+
+.orangeUnderlineDiv{
+    border-bottom: var(--color-900) solid 3px;
+}
+
+.underlineEffect{
+    color: var(--color-100);
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.underlineEffect--pp{
+    padding: 0.5rem 0 !important;
+}
+
+.underlineEffect::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 90%;
+    height: 2px;
+    background: var(--color-900);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+}
+
+.underlineEffect:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
