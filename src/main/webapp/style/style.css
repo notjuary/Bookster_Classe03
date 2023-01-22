@@ -5,6 +5,7 @@
     --ff-family-secondary: 'Be Vietnam Pro', sans-serif;
 
     --color-100: rgb(255, 255, 255);
+    --color-100-transparent: rgb(255, 255, 255, 50%);
     --color-300: rgb(253, 232, 233);
     --color-500: rgb(227, 186, 198);
     --color-700: rgb(188, 158, 193);

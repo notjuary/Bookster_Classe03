@@ -11,6 +11,11 @@
 <header class="header">
     <div class="utility">
         <form class="searchBox" action="SearchServlet" method="get">
+            <select id="selectionInput" name="selectionInput">
+                <option value="title" selected="title">Titolo</option>
+                <option value="author">Autore</option>
+                <option value="isbn">ISBN</option>
+            </select>
             <input type="text" id="searchInput" name="searchBar">
             <button class="searchButton" onsubmit="searchProduct()">
                 <span class="material-symbols-outlined search">search</span>
@@ -67,5 +72,4 @@
 </nav>
 
 </body>
-<script src="script/header.js"></script>
 </html>

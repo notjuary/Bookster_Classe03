@@ -1,0 +1,88 @@
+.footerContainer{
+    display: grid;
+    grid-template-areas:
+    'pay info soc';
+    flex-wrap: nowrap;
+    background-color: var(--color-500);
+    color: var(--color-100);
+    padding: 0.8rem 0;
+    margin-top: 2rem;
+}
+
+.payment{
+    grid-area: pay;
+}
+
+.info{
+    grid-area: info;
+}
+
+.social{
+    grid-area: soc;
+}
+
+.sectionFooter{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.subSectionH{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.subSectionH a{
+    color: var(--color-100);
+    padding: 0.1rem 0;
+}
+
+.subSectionH a:hover{
+    color: var(--color-900);
+}
+
+.sectionFooter > .title{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-100);
+    border-bottom: 3px solid var(--color-900);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.sectionFooter a i{
+    color: var(--color-100);
+    font-size: 36px;
+    padding: 0.5rem 1rem;
+}
+
+.sectionFooter a i:hover{
+    cursor: pointer;
+    color: var(--color-900);
+}
+
+.subSection div{
+    text-align: center;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width:1024px){
+    .footerContainer {
+        grid-template-areas:
+        'pay soc'
+        'info info';
+    }
+}
+
+@media (max-width:797px){
+    .footerContainer {
+        grid-template-areas:
+        'pay'
+        'info'
+        'soc';
+    }
+}

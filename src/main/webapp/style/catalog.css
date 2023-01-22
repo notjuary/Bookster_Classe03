@@ -1,0 +1,249 @@
+body{
+    background: var(--color-100);
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.section .productContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.section .productContainer .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid rgb(207, 203, 202);
+    width: 25rem;
+    height: 33rem;
+    margin: 1.5rem;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.section .productContainer .card:hover{
+    box-shadow: 0px 5px 15px rgb(0, 0, 0, 25%);
+}
+
+.section .productContainer .card .image{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section .productContainer .card .image img{
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 2rem;
+}
+
+.section .productContainer .card:hover .image{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.section .productContainer .card .info{
+    width: 100%;
+}
+
+.section .productContainer .card .info .title{
+    font-family: var(--ff-family-secondary);
+    padding: 0.5rem 0 0 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-700);
+}
+
+.section .productContainer .card .info .title span{
+    font-size: 1.5rem;
+    padding-right: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-700);
+}
+
+.section .productContainer .card:hover .info .title{
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.section .productContainer .card:hover .info .title span{
+    font-size: 1.3rem;
+}
+
+.section .productContainer .card .info .price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    padding: 0.3rem 0px;
+    color: var(--color-500);
+}
+
+.section .productContainer .card:hover .info .price{
+    padding: 0 !important;
+}
+
+.section .productContainer .card .info .price .actualPrice{
+    font-size: 1.5rem;
+}
+
+.section .productContainer .card .info .price .oldPrice{
+    font-size: 1.2rem;
+}
+
+.section .productContainer .card:hover .info .price .actualPrice,
+.section .productContainer .card:hover .info .price{
+    font-size: 1.3rem;
+}
+
+.section .productContainer .card:hover .info .price .oldPrice{
+    font-size: 1rem;
+}
+
+s {
+    text-decoration: line-through var(--color-900);
+}
+
+.section .productContainer .card .info .starsCatalog{
+    color: var(--color-900);
+    font-size: 1.2rem;
+}
+
+.section .productContainer .card:hover .info .starsCatalog{
+    font-size: 1rem;
+}
+
+#buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    height: 5rem;
+    gap: 1.5rem;
+}
+
+#buttons{
+    height: 5.5rem;
+}
+
+#buttons button{
+    width: 46%;
+}
+
+#buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    width: 44%;
+    height: 100%;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+#buttons .addToLib{
+    border: none;
+    background-color: var(--color-300);
+    color: var(--color-500);
+}
+
+#buttons .favourite{
+    background-color: var(--color-500);
+    color: var(--color-100);
+    border: none;
+}
+
+#buttons .addToLib:hover{
+    cursor: pointer;
+    background-color: var(--color-700);
+    color: white;
+    box-shadow: 0px 5px 15px rgb(0, 0, 0, 25%);
+}
+
+
+#buttons .favourite:hover{
+    cursor: pointer;
+    background-color: var(--color-700);
+    box-shadow: 0px 5px 15px rgb(0, 0, 0, 25%);
+}
+
+#buttons .unavaible{
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--color-500);
+}
+
+.popup {
+    visibility: hidden;
+    position: sticky;
+    top: 10px;
+    margin-top: 2rem;
+    background-color: var(--color-confirm-transparent);
+    color: var(--color-100);
+    text-align: center;
+    height: 0;
+    border-radius: 6px;
+    padding: 8px 0;
+    z-index: 1;
+}
+
+.hide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    visibility: hidden;
+    -webkit-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+}
+
+.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    width: 20%;
+    height: 100px;
+    font-weight: 500;
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

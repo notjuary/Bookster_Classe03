@@ -25,10 +25,8 @@ public class SearchServlet extends HttpServlet {
 
         ArrayList<Book> books = new ArrayList<>();
 
-        String typeSearch = request.getParameter("typeSearch");
-        String parameter = request.getParameter("parameter").replace(" ", "%20");
-        //Commento per Teo, per prendere il parametro dalla barra di ricerca usa:
-        // String parameter = request.getParameter("searchBar");
+        String typeSearch = request.getParameter("selectionInput");
+        String parameter = request.getParameter("searchBar");
 
         URL url;
 
@@ -89,11 +87,11 @@ public class SearchServlet extends HttpServlet {
                     volumeInfo.getInt("pageCount") : 0;
 
             Book book = new Book(isbn, title, author, category, year, publisher, path, pages);
-            System.out.println(book.toString());
+            //System.out.println(book.toString());
             books.add(book);
         }
 
         request.setAttribute("books", books);
-        getServletConfig().getServletContext().getRequestDispatcher("/WEB-INF/search.jsp").forward(request,response);
+        getServletConfig().getServletContext().getRequestDispatcher("/searchResults.jsp").forward(request,response);
     }
 }
