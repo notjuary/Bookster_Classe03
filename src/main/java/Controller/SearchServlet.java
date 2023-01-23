@@ -29,6 +29,7 @@ public class SearchServlet extends HttpServlet {
         String parameter = request.getParameter("searchBar").replace(" ", "%20");
 
         URL url;
+        // Test per risolvere un problema di github
 
         int i = 0;
 
