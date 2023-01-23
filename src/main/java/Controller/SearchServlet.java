@@ -81,24 +81,7 @@ public class SearchServlet extends HttpServlet {
 
             String path = "N/A";
             if(volumeInfo.has("imageLinks")) {
-                path = volumeInfo.getJSONObject("imageLinks").getString("medium");
-
-                if (volumeInfo.getJSONObject("imageLinks").has("extraLarge")) {
-                    path = volumeInfo.getJSONObject("imageLinks").getString("extraLarge");
-                    System.out.println("Extra");
-                }else if (volumeInfo.getJSONObject("imageLinks").has("large")) {
-                    path = volumeInfo.getJSONObject("imageLinks").getString("large");
-                    System.out.println("L");
-                } else if (volumeInfo.getJSONObject("imageLinks").has("medium")) {
-                    path = volumeInfo.getJSONObject("imageLinks").getString("medium");
-                    System.out.println("M");
-                } else if (volumeInfo.getJSONObject("imageLinks").has("small")) {
-                    path = volumeInfo.getJSONObject("imageLinks").getString("small");
-                    System.out.println("S");
-                } else {
-
-                    System.out.println("T");
-                }
+                path = volumeInfo.getJSONObject("imageLinks").getString("thumbnail");
             }
 
             int pages = volumeInfo.has("pageCount") ?

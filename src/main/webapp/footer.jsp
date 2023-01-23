@@ -8,15 +8,6 @@
 </head>
 <body>
     <footer class="footerContainer">
-        <div class="payment sectionFooter">
-            <p class="title">Metodi di pagamento</p>
-            <div class="subSection">
-                <a href="https://www.visaitalia.com/"><i class="fa fa-cc-visa"></i></a>
-                <a href="https://www.mastercard.com/"><i class="fa fa-cc-mastercard"></i></a>
-                <a href="https://www.paypal.com/"><i class="fa fa-cc-paypal"></i></a>
-                <a href="https://www.stripe.com/"><i class="fa fa-cc-stripe"></i></a>
-            </div>
-        </div>
         <div class="info sectionFooter">
             <p class="title">Informazioni</p>
             <div class="subSectionH">
@@ -24,7 +15,6 @@
                 <a href="#">Chi siamo</a>
                 <a href="#">Contattaci</a>
                 <a href="#">Lavora con noi</a>
-                <a href="#">Spedizioni e resi</a>
                 <a href="#">Termini e condizioni</a>
             </div>
         </div>

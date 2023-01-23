@@ -1,16 +1,13 @@
 .footerContainer{
     display: grid;
+    grid-column: auto;
     grid-template-areas:
-    'pay info soc';
+    'info soc';
     flex-wrap: nowrap;
     background-color: var(--color-500);
     color: var(--color-100);
     padding: 0.8rem 0;
     margin-top: 2rem;
-}
-
-.payment{
-    grid-area: pay;
 }
 
 .info{
