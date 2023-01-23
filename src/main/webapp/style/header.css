@@ -24,6 +24,15 @@
     margin-left: 0.5rem;
 }
 
+#selectionInput{
+    height: 70%;
+    padding: 0.2rem 0 0.2rem 0.2rem;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    font-weight: 500;
+    font-size: medium;
+}
+
 #searchInput{
     width: 50%;
     height: 70%;
@@ -35,15 +44,6 @@
     font-weight: 500;
     font-size: 1rem;
     padding-left: 0.5rem;
-}
-
-#selectionInput{
-    height: 70%;
-    padding: 0.2rem 0 0.2rem 0.2rem;
-    border-radius: 10px 0 0 10px;
-    border: none;
-    font-weight: 500;
-    font-size: medium;
 }
 
 .searchButton{
@@ -69,8 +69,11 @@
 
 .searchButton:hover{
     cursor: pointer;
-    background-color: var(--color-100-transparent);
-    color: black;
+    background-color: var(--color-100);
+}
+
+.searchButton:hover > span{
+    color: var(--color-900);
 }
 
 /* Area riservata al logo */
@@ -97,9 +100,6 @@
 }
 
 /* Area riservata all'utente */
-.bar{
-    display: none !important;
-}
 
 .userArea{
     display: flex;
@@ -117,36 +117,20 @@
     color: var(--color-100);
 }
 
-.userSection:hover .userName, .userSection:hover .user{
-    cursor: pointer;
-    color: var(--color-500);
+.userName{
+    text-align: center;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
 }
 
-.user, .cart, .bar{
+.user, .book{
     color: var(--color-100);
     font-size: 2.5rem !important;
 }
 
-.userName{
-    font-size: 1.2rem;
-}
-
-.cart:hover, .bar:hover{
+.user:hover, .book:hover{
     cursor: pointer;
     color: var(--color-500);
-}
-
-.bar{
-    display: none;
-}
-
-.userName{
-    text-align: center;
-    margin-right: 0.5rem;
-}
-
-.lecterCircle {
-    display: none;
 }
 
 /* Barra di navigazione */

@@ -26,7 +26,7 @@ public class SearchServlet extends HttpServlet {
         ArrayList<Book> books = new ArrayList<>();
 
         String typeSearch = request.getParameter("selectionInput");
-        String parameter = request.getParameter("searchBar");
+        String parameter = request.getParameter("searchBar").replace(" ", "%20");
 
         URL url;
 
@@ -80,8 +80,26 @@ public class SearchServlet extends HttpServlet {
                     volumeInfo.getString("publisher") : "N/A";
 
             String path = "N/A";
-            if(volumeInfo.has("imageLinks"))
-                path = volumeInfo.getJSONObject("imageLinks").getString("thumbnail");
+            if(volumeInfo.has("imageLinks")) {
+                path = volumeInfo.getJSONObject("imageLinks").getString("medium");
+
+                if (volumeInfo.getJSONObject("imageLinks").has("extraLarge")) {
+                    path = volumeInfo.getJSONObject("imageLinks").getString("extraLarge");
+                    System.out.println("Extra");
+                }else if (volumeInfo.getJSONObject("imageLinks").has("large")) {
+                    path = volumeInfo.getJSONObject("imageLinks").getString("large");
+                    System.out.println("L");
+                } else if (volumeInfo.getJSONObject("imageLinks").has("medium")) {
+                    path = volumeInfo.getJSONObject("imageLinks").getString("medium");
+                    System.out.println("M");
+                } else if (volumeInfo.getJSONObject("imageLinks").has("small")) {
+                    path = volumeInfo.getJSONObject("imageLinks").getString("small");
+                    System.out.println("S");
+                } else {
+
+                    System.out.println("T");
+                }
+            }
 
             int pages = volumeInfo.has("pageCount") ?
                     volumeInfo.getInt("pageCount") : 0;
@@ -91,6 +109,7 @@ public class SearchServlet extends HttpServlet {
             books.add(book);
         }
 
+        request.getSession().setAttribute("bookList", books);
         request.setAttribute("books", books);
         getServletConfig().getServletContext().getRequestDispatcher("/searchResults.jsp").forward(request,response);
     }

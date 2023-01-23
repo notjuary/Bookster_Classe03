@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel = "icon" href="resources/img/Book.svg" type="image/x-icon">
-  <title>Bookster: </title>
+  <title>Bookster: <%=request.getParameter("searchBar")%></title>
 
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/catalog.css">
@@ -19,15 +19,17 @@
     <div id="productContainerID" class="productContainer">
     <%
       ArrayList<Book> list = (ArrayList<Book>) request.getAttribute("books");
+      request.getSession().setAttribute("bookList", list);
 
       for (int i = 0; i < list.size(); i++)
       {
+
         Book book = list.get(i);
     %>
       <div class="card">
-        <a href="#linkToPageBook">
+        <a href="BookInformationServlet?libro=<%=i%>">
           <div class="image">
-            <img src="<%=book.getPath()%>" alt="<%=book.getTitle()%>">
+            <img src="<%=book.getPath()%>" alt="1<%=book.getTitle()%>">
           </div>
         </a>
         <div class="info">
