@@ -29,9 +29,6 @@ public class SearchServlet extends HttpServlet {
         String parameter = request.getParameter("searchBar").replace(" ", "%20");
 
         URL url;
-        // Test per risolvere un problema di github
-
-        int i = 0;
 
         switch (typeSearch) {
             case "isbn": {
@@ -39,8 +36,8 @@ public class SearchServlet extends HttpServlet {
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
                 else if (!parameter.matches("[0-9]+"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
-                else
-                    url = new URL("https://www.googleapis.com/books/v1/volumes?q=isbn:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+
+                url = new URL("https://www.googleapis.com/books/v1/volumes?q=isbn:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
                 break;
             }
             case "author": {
@@ -48,8 +45,8 @@ public class SearchServlet extends HttpServlet {
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
                 else if (!parameter.matches("^[a-zA-Z]+$"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
-                else
-                    url = new URL("https://www.googleapis.com/books/v1/volumes?q=inauthor:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+
+                url = new URL("https://www.googleapis.com/books/v1/volumes?q=inauthor:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
                 break;
             }
             case "title": {
@@ -57,8 +54,8 @@ public class SearchServlet extends HttpServlet {
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
                 else if (!parameter.matches("^[a-zA-Z0-9]+$"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
-                else
-                    url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+
+                url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
                 break;
             }
             default: url = new URL("");
@@ -75,7 +72,7 @@ public class SearchServlet extends HttpServlet {
         reader.close();
 
         JSONArray items = new JSONObject(json.toString()).getJSONArray("items");
-        for (i = 0; i < items.length(); i++) {
+        for (int i = 0; i < items.length(); i++) {
 
             JSONObject volumeInfo = items.getJSONObject(i).getJSONObject("volumeInfo");
 
