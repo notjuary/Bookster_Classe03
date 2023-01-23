@@ -34,9 +34,33 @@ public class SearchServlet extends HttpServlet {
         int i = 0;
 
         switch (typeSearch) {
-            case "isbn": url = new URL("https://www.googleapis.com/books/v1/volumes?q=isbn:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8"); break;
-            case "author": url = new URL("https://www.googleapis.com/books/v1/volumes?q=inauthor:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8"); break;
-            case "title": url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8"); break;
+            case "isbn": {
+                if (parameter.length() != 10 && parameter.length() != 13)
+                    getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+                else if (!parameter.matches("[0-9]+"))
+                    getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+                else
+                    url = new URL("https://www.googleapis.com/books/v1/volumes?q=isbn:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+                break;
+            }
+            case "author": {
+                if (parameter.length() > 100 || parameter.length() < 1)
+                    getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+                else if (!parameter.matches("^[a-zA-Z]+$"))
+                    getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+                else
+                    url = new URL("https://www.googleapis.com/books/v1/volumes?q=inauthor:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+                break;
+            }
+            case "title": {
+                if (parameter.length() > 30 || parameter.length() < 1)
+                    getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+                else if (!parameter.matches("^[a-zA-Z0-9]+$"))
+                    getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+                else
+                    url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+                break;
+            }
             default: url = new URL("");
         }
 
