@@ -5,18 +5,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/header.css">
+    <script src="resources/javascript/validateSearch.js"></script>
 </head>
 <body>
 <header class="header">
     <div class="utility">
-        <form class="searchBox" action="SearchServlet" method="get">
+        <form class="searchBox" action="SearchServlet" method="get" id="myForm">
             <select id="selectionInput" name="selectionInput">
                 <option value="title" selected="title">Titolo</option>
                 <option value="author">Autore</option>
                 <option value="isbn">ISBN</option>
             </select>
             <input type="text" id="searchInput" name="searchBar">
-            <button class="searchButton" onsubmit="searchProduct()">
+            <button type="button" onclick="validateForm()" class="searchButton">
                 <span class="material-symbols-outlined search">search</span>
             </button>
         </form>
