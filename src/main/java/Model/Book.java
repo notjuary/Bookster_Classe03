@@ -11,10 +11,11 @@ public class Book {
     private String publisher;
     private String path;
     private int pages;
+    private String description;
 
     public Book(){};
 
-    public Book(String isbn, String title, String author, String category, Date year, String publisher, String path, int pages) {
+    public Book(String isbn, String title, String author, String category, Date year, String publisher, String path, int pages, String description) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
@@ -23,6 +24,7 @@ public class Book {
         this.publisher = publisher;
         this.path = path;
         this.pages = pages;
+        this.description = description;
     }
 
     public String getIsbn() {
@@ -89,17 +91,11 @@ public class Book {
         this.pages = pages;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "isbn='" + isbn + '\'' +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", category='" + category + '\'' +
-                ", year=" + year +
-                ", publisher='" + publisher + '\'' +
-                ", path='" + path + '\'' +
-                ", pages=" + pages +
-                "}\n";
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

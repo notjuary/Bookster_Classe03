@@ -109,8 +109,10 @@ public class SearchServlet extends HttpServlet {
             int pages = volumeInfo.has("pageCount") ?
                     volumeInfo.getInt("pageCount") : 0;
 
-            Book book = new Book(isbn, title, author, category, year, publisher, path, pages);
-            //System.out.println(book.toString());
+            String description = volumeInfo.has("description") ?
+                    volumeInfo.getString("description") : "N/A";
+
+            Book book = new Book(isbn, title, author, category, year, publisher, path, pages, description);
             books.add(book);
         }
 
