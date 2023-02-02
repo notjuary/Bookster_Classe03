@@ -37,7 +37,10 @@
         </div>
         <div class="buttons" id="buttons">
           <button class="favourite">Preferiti</button>
-          <button class="addToLib">Aggiungi alla libreria</button>
+          <form action="LibraryServlet" method="get">
+            <button class="addToLib" value="aggiungiLibreria">Aggiungi alla libreria</button>
+
+          </form>
         </div>
       </div>
     <% } %>
