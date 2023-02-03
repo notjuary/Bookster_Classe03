@@ -13,8 +13,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 @WebServlet(name = "SearchServlet", value = "/SearchServlet")
@@ -26,7 +26,7 @@ public class SearchServlet extends HttpServlet {
         ArrayList<Book> books = new ArrayList<>();
 
         String typeSearch = request.getParameter("selectionInput");
-        String parameter = request.getParameter("searchBar").replace(" ", "%20");
+        String parameter = request.getParameter("searchBar");
 
         URL url;
 
@@ -37,25 +37,25 @@ public class SearchServlet extends HttpServlet {
                 else if (!parameter.matches("[0-9]+"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 
-                url = new URL("https://www.googleapis.com/books/v1/volumes?q=isbn:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+                url = new URL("https://www.googleapis.com/books/v1/volumes?q=isbn:" + parameter.replace(" ", "%20") + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
                 break;
             }
             case "author": {
                 if (parameter.length() > 100 || parameter.length() < 1)
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
-                else if (!parameter.matches("^[a-zA-Z]+$"))
+                else if (!parameter.matches("^[a-zA-Z\\s]+$"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 
-                url = new URL("https://www.googleapis.com/books/v1/volumes?q=inauthor:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+                url = new URL("https://www.googleapis.com/books/v1/volumes?q=inauthor:" + parameter.replace(" ", "%20") + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
                 break;
             }
             case "title": {
                 if (parameter.length() > 30 || parameter.length() < 1)
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
-                else if (!parameter.matches("^[a-zA-Z0-9]+$"))
+                else if (!parameter.matches("^[a-zA-Z\\s0-9]+$"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 
-                url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:" + parameter + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
+                url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:" + parameter.replace(" ", "%20") + "&key=AIzaSyCf_5gM-QPraMtstDESRv_rxVJhUiJ_YP8");
                 break;
             }
             default: url = new URL("");
@@ -97,6 +97,14 @@ public class SearchServlet extends HttpServlet {
                     volumeInfo.getJSONArray("categories").getString(0) : "N/A";
 
             Date year = Date.valueOf("2000-01-01");
+            if (volumeInfo.has("publishedDate")) {
+                String publishedDate = volumeInfo.getString("publishedDate");
+                try {
+                    year = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(publishedDate).getTime());
+                } catch (ParseException e) {
+                    System.out.println("Error parsing date, using default");
+                }
+            }
 
             String publisher = volumeInfo.has("publisher") ?
                     volumeInfo.getString("publisher") : "N/A";

@@ -45,6 +45,8 @@
                 <p><%=book.getPages()%></p>
                 <p><%=book.getAuthor()%></p>
                 <p><%=book.getPublisher()%></p>
+                <p><%=book.getDescription()%></p>
+                <p><%=book.getYear()%></p>
             </div>
 
             <div class="containerButtons">
