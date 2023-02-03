@@ -36,11 +36,10 @@
           <div class="title"><span><%=book.getTitle()%></span><%=book.getAuthor()%></div>
         </div>
         <div class="buttons" id="buttons">
-          <button class="favourite">Preferiti</button>
-          <form action="LibraryServlet" method="get">
-            <button class="addToLib" value="aggiungiLibreria">Aggiungi alla libreria</button>
 
-          </form>
+            <button class="favourite" onclick="window.location.href='LibraryServlet?action=preferiti,id=<%=i%>'" name="favourite">Preferiti</button>
+            <button class="addToLib" onclick="window.location.href='LibraryServlet?action=libreria,id=<%=i%>'"  name="addToLib">Aggiungi alla libreria</button>
+
         </div>
       </div>
     <% } %>

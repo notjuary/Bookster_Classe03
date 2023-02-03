@@ -48,11 +48,13 @@
             </div>
 
             <div class="containerButtons">
-                <button onclick="" class="addToCart--productpPage">
+                <form action="LibraryServlet" method="get">
+                    <button name="addToLib" value="addToLib" onclick="window.location.href='LibraryServlet?title=<%=book.getTitle()%>'" class="addToCart--productpPage">
                     <span class="material-symbols-outlined">shopping_bag</span>
-                    <p>Aggiungi al carrello</p>
+                    <p>Aggiungi alla libreria</p>
                 </button>
                 <span class="material-symbols-outlined favourite" onclick="">favorite</span>
+                </form>
             </div>
         </div>
     </main>
