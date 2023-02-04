@@ -15,6 +15,18 @@ public class Book {
 
     public Book(){};
 
+    public Book(String isbn, String title, String author, String path, int pages) {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.category = "N/A";
+        this.year = Date.valueOf("2000-01-01");
+        this.publisher = "N/A";
+        this.path = path;
+        this.pages = pages;
+        this.description = "N/A";
+    }
+
     public Book(String isbn, String title, String author, String category, Date year, String publisher, String path, int pages, String description) {
         this.isbn = isbn;
         this.title = title;
