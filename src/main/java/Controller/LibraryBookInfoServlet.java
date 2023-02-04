@@ -13,24 +13,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "LibraryServlet", value = "/LibraryServlet")
-public class LibraryServlet extends HttpServlet {
-    private int index;
+@WebServlet(name = "LibraryBookInfoServlet", value = "/LibraryBookInfoServlet")
+public class LibraryBookInfoServlet  extends HttpServlet {
+    private String title;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String action = request.getParameter("action");
-        String[] actionSplit=action.split(",");
-        action=actionSplit[0];
-        String temp=actionSplit[1];
-        String[]indexSplit=temp.split("=");
-        index=Integer.parseInt(indexSplit[1]);
+        title=(String) request.getSession().getAttribute("title");
+
 
         if (action != null) {
             if (action.equalsIgnoreCase("libreria")) {
                 doGetAddToLib(request, response);
-            }else if(action.equalsIgnoreCase("preferiti")){
-                doGetAddFavourite(request,response);
+            } else if (action.equalsIgnoreCase("preferiti")) {
+                doGetAddFavourite(request, response);
             }
         }
     }
@@ -39,48 +36,47 @@ public class LibraryServlet extends HttpServlet {
         HttpSession session = request.getSession();
         List<Book> list = (List<Book>) session.getAttribute("bookList");
 
-
         if (session.getAttribute("libraryList") == null) {
             List<Book> librayList = new ArrayList<Book>();
             for (int i = 0; i < list.size(); i++) {
-                if (i == index) {
+                if (list.get(i).getIsbn().compareTo(title)==0) {
                     librayList.add(list.get(i));
-
+                    System.out.println(list.get(i).getTitle());
                     session.setAttribute("libraryList", librayList);
                 }
             }
-        }else {
+        } else {
             List<Book> libraryList = (List<Book>) session.getAttribute("libraryList");
-            String isbn=null;
-                for(int j=0;j< list.size();j++){
-                    if(j==index){
-                        isbn=list.get(j).getIsbn();
+            String isbnList = null;
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(j).getTitle().compareTo(title)==0) {
+                    isbnList = list.get(j).getIsbn();
+                }
+            }
+            int indexList = isExisting(isbnList, libraryList);
+
+            if (indexList == -1) {
+                for (int j = 0; j < list.size(); j++) {
+                    if (list.get(j).getTitle().compareTo(title)==0) {
+                        libraryList.add(list.get(j));
+                        System.out.println(list.get(j).getTitle());
+
                     }
-             }
-                int indexList = isExisting(isbn, libraryList);
-
-                    if(indexList==-1) {
-                        for (int j = 0; j < list.size(); j++) {
-                            if (j == index) {
-                                libraryList.add(list.get(j));
-
-                            }
-                        }
-                    }
-
+                }
+            }
             session.setAttribute("libraryList", libraryList);
         }
 
 
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
+
     }
 
-    private int isExisting(String isbn,List<Book> libraryList){
-        if(libraryList!=null) {
+    private int isExisting(String isbnList, List<Book> libraryList) {
+        if (libraryList != null) {
             for (int i = 0; i < libraryList.size(); i++) {
-                if (libraryList.get(i).getIsbn().equalsIgnoreCase(isbn)) {
+                if (libraryList.get(i).getIsbn().equalsIgnoreCase(isbnList)) {
                     return i;
                 }
             }
@@ -96,7 +92,7 @@ public class LibraryServlet extends HttpServlet {
         if (session.getAttribute("libraryFavourite") == null) {
             List<Book> libraryFavourite = new ArrayList<Book>();
             for (int i = 0; i < list.size(); i++) {
-                if (i == index) {
+                if (list.get(i).getTitle().compareTo(title)==0) {
                     libraryFavourite.add(list.get(i));
 
                     session.setAttribute("libraryFavourite", libraryFavourite);
@@ -106,7 +102,7 @@ public class LibraryServlet extends HttpServlet {
             List<Book> libraryFavourite = (List<Book>) session.getAttribute("libraryFavourite");
             String isbn=null;
             for(int j=0;j< list.size();j++){
-                if(j==index){
+                if(list.get(j).getTitle().compareTo(title)==0){
                     isbn=list.get(j).getIsbn();
                 }
             }
@@ -114,7 +110,7 @@ public class LibraryServlet extends HttpServlet {
 
             if(indexList==-1) {
                 for (int j = 0; j < list.size(); j++) {
-                    if (j == index) {
+                    if (list.get(j).getTitle().compareTo(title)==0) {
                         libraryFavourite.add(list.get(j));
 
                     }
@@ -129,4 +125,5 @@ public class LibraryServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }
+
 }

@@ -18,8 +18,8 @@ public class BookInformationServlet extends HttpServlet {
 
         int index = Integer.parseInt(request.getParameter("libro"));
         ArrayList<Book> bookList = (ArrayList<Book>) request.getSession().getAttribute("bookList");
-
         Book book = bookList.get(index);
+        request.getSession().setAttribute("title",book.getTitle());
         System.out.println(book.toString());
         request.setAttribute("book", book);
         String indirizzo = "bookPage.jsp";

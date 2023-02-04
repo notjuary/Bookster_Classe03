@@ -10,6 +10,8 @@
 
     <%
         Book book = (Book) request.getAttribute("book");
+        String isbn= (String) request.getSession().getAttribute("isbn");
+        System.out.println(isbn);
     %>
 
     <title>Bookster: <%=book.getTitle()%></title>
@@ -50,12 +52,11 @@
             </div>
 
             <div class="containerButtons">
-                <form action="LibraryServlet" method="get">
-                    <button name="addToLib" value="addToLib" onclick="window.location.href='LibraryServlet?title=<%=book.getTitle()%>'" class="addToCart--productpPage">
+                <button name="addToLib" value="addToLib" onclick="window.location.href='LibraryBookInfoServlet?action=libreria'" class="addToCart--productpPage">
                     <span class="material-symbols-outlined">shopping_bag</span>
                     <p>Aggiungi alla libreria</p>
                 </button>
-                <span class="material-symbols-outlined favourite" onclick="">favorite</span>
+                <span class="material-symbols-outlined favourite" onclick="window.location.href='LibraryBookInfoServlet?action=preferiti'">favorite</span>
                 </form>
             </div>
         </div>
