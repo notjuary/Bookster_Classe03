@@ -17,15 +17,10 @@ public class InsertBookServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*String isbn = request.getParameter("isbn");
+        String isbn = request.getParameter("isbn");
         String title = request.getParameter("title");
         String author = request.getParameter("author");
-        int numberPage = Integer.parseInt(request.getParameter("numberPage"));*/
-
-        String isbn = "1234567890123";
-        String title = "titolo a cas";
-        String author = "Autore a caso";
-        int numberPage = 7;
+        int numberPage = Integer.parseInt(request.getParameter("numberPage"));
 
         if (isbn.length() != 13 && isbn.length() != 10)
             getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
