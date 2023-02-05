@@ -34,7 +34,7 @@
 
             if(request.getSession() == null || lettore == null) {
         %>
-        <a href="login.html">
+        <a href="login.jsp">
                 <%
                 } else{
             %>

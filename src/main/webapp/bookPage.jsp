@@ -6,31 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" href="resources/img/Book.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <%
         Book book = (Book) request.getAttribute("book");
-        String isbn= (String) request.getSession().getAttribute("isbn");
+        String isbn = (String) request.getSession().getAttribute("isbn");
+
+        // Da cancellare
         System.out.println(isbn);
     %>
 
     <title>Bookster: <%=book.getTitle()%></title>
-
-    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/bookPage.css">
 </head>
 <body>
     <%@ include file="header.jsp"%>
 
+    <%-- Percorso del libro --%>
     <div class="path">
         <a href="index.jsp" class="underlineEffect underlineEffect--pp">Home</a>
-        <p> <i class='fas fa-angle-right'></i> </p>
+        <span class="material-symbols-outlined">chevron_right</span>
         <a href="#" class="underlineEffect underlineEffect--pp">Catalogo</a>
-        <p> <i class='fas fa-angle-right'></i> </p>
+        <span class="material-symbols-outlined">chevron_right</span>
+        <% if(book.getCategory().compareToIgnoreCase("N/A") != 0) {%>
         <a href="#" class="underlineEffect underlineEffect--pp"><%=book.getCategory()%></a>
-        <p> <i class='fas fa-angle-right'></i> </p>
-        <p style="color: var(--color-900);"><%=book.getTitle()%></p>
+        <span class="material-symbols-outlined">chevron_right</span>
+        <%
+            }
+        %>
+        <% if(book.getTitle().length() > 60) {
+            String newTitle = book.getTitle().substring(0, 60) + "...";%>
+        <p style="color: var(--color-900); font-weight: 500"><%=newTitle%></p>
+        <%
+            } else {
+        %>
+        <p style="color: var(--color-900); font-weight: 500"><%=book.getTitle()%></p>
+        <%
+            }
+        %>
     </div>
+
     <main>
         <div class="gridContainer">
             <div class="containerImage">
@@ -38,23 +52,36 @@
             </div>
 
             <div class="containerTitle">
-                <div class="orangeUnderlineDiv">
+                <div class="underlineDiv">
                     <h1><%=book.getTitle()%></h1>
                 </div>
             </div>
 
-            <div class="containerDescription">
-                <p><%=book.getPages()%></p>
-                <p><%=book.getAuthor()%></p>
-                <p><%=book.getPublisher()%></p>
-                <p><%=book.getDescription()%></p>
-                <p><%=book.getYear()%></p>
+            <div class="containerInfo">
+                <p><span>Pagine: </span><%=book.getPages()%></p>
+                <p><span>Autore: </span><%=book.getAuthor()%></p>
+                <p><span>Editore: </span><%=book.getPublisher()%></p>
+                <p><span>Data pubblicazione: </span><%=book.getYear()%></p>
             </div>
 
+
+            <% if(book.getDescription().compareToIgnoreCase("N/A") != 0) {%>
+            <div class="containerDescription">
+                <div class="descriptionSection">
+                    Descrizione
+                </div>
+                <div>
+                    <%=book.getDescription()%>
+                </div>
+            </div>
+            <%
+                }
+            %>
+
+
             <div class="containerButtons">
-                <button name="addToLib" value="addToLib" onclick="window.location.href='LibraryBookInfoServlet?action=libreria'" class="addToCart--productpPage">
-                    <span class="material-symbols-outlined">shopping_bag</span>
-                    <p>Aggiungi alla libreria</p>
+                <button name="addToLib" value="addToLib" class="addToLib" onclick="window.location.href='LibraryBookInfoServlet?action=libreria'">
+                    <span class="material-symbols-outlined">menu_book</span> Aggiungi alla libreria
                 </button>
                 <span class="material-symbols-outlined favourite" onclick="window.location.href='LibraryBookInfoServlet?action=preferiti'">favorite</span>
                 </form>

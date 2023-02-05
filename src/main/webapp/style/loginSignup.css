@@ -1,0 +1,117 @@
+body{
+    background-color: var(--color-300);
+}
+
+.containerFlexLoginSignup{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerLogin, .containerSignup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-100);
+    width: 50rem;
+    text-align: center;
+    box-shadow: 0px 15px 25px rgb(0, 0, 0, 25%);
+    outline: 0.2rem solid var(--color-300);
+    outline-offset: -0.7rem;
+    border-radius: 20px;
+    padding: 0 60px;
+}
+
+
+.containerLogin{
+    height: 28rem;
+}
+
+.containerSignup{
+    margin: 2rem 0;
+    height: 60rem;
+}
+
+.containerLogin div label, .containerSignup div label{
+    color: var(--color-700);
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.margin-top{
+    margin-top: 1.5rem;
+}
+
+.inputSpace{
+    width: 20rem;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+    margin-top: 0.5rem;
+    border: solid var(--color-300) 0.2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 0.2rem var(--color-100);
+}
+
+.loginSignup{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.warningLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-900);
+    margin: 1rem 0 0 0;
+}
+
+.button{
+    padding: 1rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-100);
+    border: none;
+    border-radius: 30px;
+    background-color: var(--color-900);
+}
+
+
+.button:hover{
+    cursor: pointer;
+    background-color: var(--color-300);
+    color: var(--color-500);
+}
+
+.registerLink{
+
+    text-align: center;
+}
+
+.registerLink > span{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--color-900);
+}
+
+.regText > a{
+    font-size: 18px;
+    color: var(--color-500);
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.regText > a::after{
+    width: 80%;
+    left: 18px;
+}

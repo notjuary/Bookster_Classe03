@@ -54,11 +54,11 @@ main{
     background: var(--color-800);
 }
 
-.orangeUnderline{
+.underline{
     text-decoration: underline var(--color-900) 2px;
 }
 
-.orangeUnderlineDiv{
+.underlineDiv{
     border-bottom: var(--color-900) solid 3px;
 }
 
