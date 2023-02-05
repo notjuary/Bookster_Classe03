@@ -20,6 +20,20 @@ import java.util.ArrayList;
 @WebServlet(name = "SearchServlet", value = "/SearchServlet")
 public class SearchServlet extends HttpServlet {
 
+    /**
+     * Questo metodo viene utilizzato per gestire le richieste HTTP GET. Utilizza un parametro di ricerca
+     * "selectionInput" per identificare il tipo di ricerca (ISBN, autore o titolo) e un parametro "searchBar"
+     * per specificare il valore di ricerca. Se i parametri non soddisfano i criteri specificati
+     * (lunghezza, formato), viene reindirizzato alla pagina index.jsp. Altrimenti, viene costruito un URL per
+     * effettuare una richiesta a Google Books API per ottenere i risultati di ricerca. I risultati vengono quindi
+     * elaborati per estrarre informazioni sul libro come ISBN, autore, titolo, categoria e data di pubblicazione.
+     * Queste informazioni vengono quindi archiviate in una lista di oggetti libro e passate alla pagina jsp per
+     * visualizzazione.
+     * @param request La richiesta HTTP che contiene i parametri di ricerca
+     * @param response La risposta HTTP che verrà inviata al client
+     * @throws ServletException Se si verifica un errore durante l'elaborazione della richiesta
+     * @throws IOException Se si verifica un errore d'ingresso/uscita durante l'elaborazione della richiesta
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

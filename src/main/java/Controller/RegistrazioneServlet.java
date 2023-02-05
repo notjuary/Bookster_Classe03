@@ -19,6 +19,23 @@ import java.util.regex.Pattern;
 @WebServlet("/RegistrazioneServlet")
 public class RegistrazioneServlet extends HttpServlet {
 
+    /**
+     * Questo metodo gestisce la richiesta HTTP POST per la registrazione di un nuovo utente nel sistema.
+     * Il metodo recupera i parametri di richiesta necessari per la registrazione di un utente, ovvero username,
+     * nome, cognome, data di nascita, email, password, conferma password, numero di telefono. Viene quindi
+     * effettuata una serie di controlli di validità sui dati inseriti (ad esempio, lunghezza di nome e cognome,
+     * validità dell'email, formato del numero di telefono, formato della password). Se i controlli di validità
+     * falliscono, viene reindirizzato l'utente alla pagina di registrazione. Altrimenti, viene creato un nuovo
+     * oggetto Lettore con i dati inseriti dall'utente e viene eseguito il metodo doRegistrazione del relativo
+     * DAO per registrare l'utente nel sistema.
+     * @param request Oggetto HttpServletRequest per la richiesta HTTP.
+     * @param response Oggetto HttpServletResponse per la risposta HTTP.
+     * @throws IOException Se si verifica un errore d'ingresso e di uscita durante l'elaborazione della richiesta.
+     * @throws ServletException Se si verifica un errore durante l'elaborazione della richiesta.
+     * @see Lettore
+     * @see LettoreDAO
+     */
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String username = request.getParameter("username");

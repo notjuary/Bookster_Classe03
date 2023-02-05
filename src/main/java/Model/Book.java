@@ -15,6 +15,14 @@ public class Book {
 
     public Book(){};
 
+    /**
+     * Costruttore della classe {@link Book}.
+     * @param isbn Il codice ISBN del libro.
+     * @param title Il titolo del libro.
+     * @param author L'autore del libro.
+     * @param path Il percorso del file del libro.
+     * @param pages Il numero di pagine del libro.
+     */
     public Book(String isbn, String title, String author, String path, int pages) {
         this.isbn = isbn;
         this.title = title;
@@ -27,17 +35,29 @@ public class Book {
         this.description = "N/A";
     }
 
-    public Book(String isbn, String title, String author, String category, Date year, String publisher, String path, int pages, String description) {
-        this.isbn = isbn;
-        this.title = title;
-        this.author = author;
-        this.category = category;
-        this.year = year;
-        this.publisher = publisher;
-        this.path = path;
-        this.pages = pages;
-        this.description = description;
-    }
+    /**
+     * Questa classe rappresenta un oggetto libro.
+     * @param isbn Codice ISBN del libro
+     * @param title Titolo del libro
+     * @param author Autore del libro
+     * @param category Categoria del libro
+     * @param year Anno di pubblicazione del libro
+     * @param publisher Casa editrice del libro
+     * @param path Percorso del file del libro
+     * @param pages Numero di pagine del libro
+     */
+     public Book(String isbn, String title, String author, String category, Date year, String publisher, String path, int pages, String description) {
+            this.isbn = isbn;
+            this.title = title;
+            this.author = author;
+            this.category = category;
+            this.year = year;
+            this.publisher = publisher;
+            this.path = path;
+            this.pages = pages;
+            this.description = description;
+     }
+
 
     public String getIsbn() {
         return isbn;

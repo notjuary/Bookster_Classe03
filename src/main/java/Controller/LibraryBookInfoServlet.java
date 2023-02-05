@@ -17,11 +17,20 @@ import java.util.List;
 public class LibraryBookInfoServlet  extends HttpServlet {
     private String title;
 
+    /**
+     * Questo metodo gestisce la richiesta doGet .Verifica se l'azione richiesta dall'utente è "libreria" o
+     * "preferiti" tramite il parametro "action" della richiesta HTTP. Se l'azione è "libreria" oppure è
+     * "preferiti".
+     * @param request La richiesta HTTP
+     * @param response La risposta HTTP
+     * @throws ServletException Se si verifica un errore durante l'elaborazione della richiesta
+     * @throws IOException Se si verifica un errore d'ingresso o uscita durante l'elaborazione della richiesta
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        title=(String) request.getSession().getAttribute("title");
 
+        String action = request.getParameter("action");
+        title = (String) request.getSession().getAttribute("title");
 
         if (action != null) {
             if (action.equalsIgnoreCase("libreria")) {
@@ -32,6 +41,19 @@ public class LibraryBookInfoServlet  extends HttpServlet {
         }
     }
 
+    /**
+     * Questo metodo gestisce l'aggiunta di un libro alla libreria dell'utente. Recupera la sessione e la
+     * lista di libri disponibili e controlla se la libreria dell'utente è già stata creata. Se non è stata
+     * creata, viene creata una nuova lista di libreria e viene aggiunto il libro corrispondente al titolo
+     * specificato. Se la libreria esiste già, viene controllato se il libro esiste già nella lista utilizzando
+     * il metodo "isExisting". Se non esiste, viene aggiunto alla libreria. Infine, viene impostata la libreria
+     * come attributo di sessione e viene reindirizzato l'utente alla pagina "libraryPage.jsp".
+     * @param request La richiesta HTTP
+     * @param response La risposta HTTP
+     * @throws ServletException Se c'è un errore durante l'elaborazione della richiesta
+     * @throws IOException Se c'è un errore d'input/output durante la gestione della richiesta
+     * @see Book
+     */
     protected void doGetAddToLib(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         List<Book> list = (List<Book>) session.getAttribute("bookList");
@@ -70,9 +92,15 @@ public class LibraryBookInfoServlet  extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
-
     }
 
+    /**
+     * Questo metodo verifica se un libro con un determinato ISBN esiste già nella lista della libreria.
+     * @param isbnList ISBN del libro da cercare
+     * @param libraryList Lista della libreria
+     * @return Indice della posizione del libro se esiste, -1 altrimenti
+     * @see Book
+     */
     private int isExisting(String isbnList, List<Book> libraryList) {
         if (libraryList != null) {
             for (int i = 0; i < libraryList.size(); i++) {
@@ -84,6 +112,18 @@ public class LibraryBookInfoServlet  extends HttpServlet {
         return -1;
     }
 
+    /**
+     * Questo metodo si occupa di gestire l'aggiunta di un libro ai preferiti di un utente. Viene effettuato
+     * il controllo se l'elenco dei libri preferiti è già stato creato o meno. In caso negativo, viene creato
+     * un nuovo elenco e viene inserito il libro desiderato. In caso contrario, viene verificato se il libro
+     * è già presente nell'elenco, se non lo è viene inserito. Infine, viene reindirizzato l'utente alla pagina
+     * "libraryPage.jsp".
+     * @param request La richiesta HTTP
+     * @param response La risposta HTTP
+     * @throws ServletException Se si verifica un errore durante l'elaborazione della richiesta
+     * @throws IOException Se si verifica un errore di I/O durante la risposta HTTP
+     * @see Book
+     */
     protected void doGetAddFavourite(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         List<Book> list = (List<Book>) session.getAttribute("bookList");
@@ -112,7 +152,6 @@ public class LibraryBookInfoServlet  extends HttpServlet {
                 for (int j = 0; j < list.size(); j++) {
                     if (list.get(j).getTitle().compareTo(title)==0) {
                         libraryFavourite.add(list.get(j));
-
                     }
                 }
             }
@@ -120,10 +159,7 @@ public class LibraryBookInfoServlet  extends HttpServlet {
             session.setAttribute("libraryFavourite", libraryFavourite);
         }
 
-
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }
-
 }
