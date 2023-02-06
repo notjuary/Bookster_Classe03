@@ -13,6 +13,13 @@ import java.util.List;
 @WebServlet(name = "LettoreDAO", value = "/LettoreDAO")
 public class LettoreDAO extends HttpServlet {
 
+    /**
+     * Effettua il login di un utente.
+     * @param username l'username inserito dall'utente
+     * @param password la password inserita dall'utente
+     * @return il {@link Lettore} associato all'username e password, se esiste, altrimenti {@code null}
+     * @throws RuntimeException in caso di errore di connessione al database
+     */
     public static Lettore doLogin(String username,String password){
 
         Lettore l = new Lettore();
@@ -45,6 +52,13 @@ public class LettoreDAO extends HttpServlet {
         }
     }
 
+    /**
+     * Questo metodo viene utilizzato per registrare un nuovo utente nel sistema.
+     * Crea una nuova connessione al database con l'aiuto della classe ConPool e quindi esegue una query SQL per inserire i dettagli del nuovo utente.
+     * In caso di errore nell'inserimento dei dettagli, viene sollevata una eccezione di tipo RuntimeException.
+     * @param l Lettore - L'oggetto Lettore che rappresenta il nuovo utente da registrare
+     * @throws RuntimeException in caso di errore nel definire il nuovo utente
+     */
     public static void doRegistrazione(Lettore l){
 
         try(Connection connection= ConPool.getConnection()){
@@ -69,6 +83,11 @@ public class LettoreDAO extends HttpServlet {
         }
     }
 
+    /**
+     * Questo metodo recupera tutti i dati degli utenti registrati nel sistema.
+     * @return Una lista di oggetti di tipo Lettore, che rappresentano tutti gli utenti registrati.
+     * @throws RuntimeException in caso di errore nell'esecuzione della query.
+     */
     public static List<Lettore> doRetriveUtente() {
 
         List<Lettore> listLettore = new ArrayList<Lettore>();
@@ -100,6 +119,12 @@ public class LettoreDAO extends HttpServlet {
         }
     }
 
+    /**
+     * Questo metodo controlla se l'email specificata esiste già nel database dei lettori.
+     * @param email L'email da verificare.
+     * @return True se l'email esiste già nel database, False altrimenti.
+     * @throws RuntimeException Se si verifica un'eccezione SQL durante l'esecuzione della query.
+     */
     public static boolean controlloEmail(String email){
 
         try (Connection con = ConPool.getConnection()) {

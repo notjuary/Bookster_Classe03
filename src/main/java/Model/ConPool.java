@@ -11,6 +11,13 @@ public class ConPool {
 
     private static DataSource datasource;
 
+    /**
+     * La classe ConPool contiene il metodo getConnection che restituisce una connessione al database
+     * Bookster sul server locale. La connessione viene ottenuta tramite un oggetto DataSource
+     * configurato con un oggetto di tipo PoolProperties.
+     * @return una connessione al database Bookster.
+     * @throws SQLException in caso di errore durante la connessione al database.
+     */
     public static Connection getConnection() throws SQLException {
 
         if (datasource == null) {

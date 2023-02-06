@@ -58,75 +58,137 @@ public class Book {
             this.description = description;
      }
 
-
+    /**
+     * Questo metodo restituisce il valore dell'ISBN.
+     * @return Il valore dell'ISBN.
+     */
     public String getIsbn() {
         return isbn;
     }
 
+    /**
+     * Questo metodo setta il valore dell'ISBN.
+     */
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
+    /**
+     * Questo metodo restituisce il titolo del libro
+     * @return Il titolo del libro.
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Questo metodo setta il titolo del libro
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * Questo metodo restituisce l'autore del libro
+     * @return L'autore del libro.
+     */
     public String getAuthor() {
         return author;
     }
 
+    /**
+     * Questo metodo setta l'autore del libro
+     */
     public void setAuthor(String author) {
         this.author = author;
     }
 
+    /**
+     * Questo metodo restituisce la categoria del libro
+     * @return La categoria del libro.
+     */
     public String getCategory() {
         return category;
     }
 
+    /**
+     * Questo metodo setta la categoria del libro
+     */
     public void setCategory(String category) {
         this.category = category;
     }
 
+    /**
+     * Questo metodo restituisce la data di pubblicazione del libro
+     * @return La data di pubblicazione del libro
+     */
     public Date getYear() {
         return year;
     }
 
+    /**
+     * Questo metodo setta la data di pubblicazione del libro
+     */
     public void setYear(Date year) {
         this.year = year;
     }
 
+    /**
+     * Questo metodo restituisce la casa editrice del libro
+     * @return La casa editrice del libro
+     */
     public String getPublisher() {
         return publisher;
     }
 
+    /**
+     * Questo metodo setta la casa editrice del libro
+     */
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 
+    /**
+     * Questo metodo restituisce la copertina del libro
+     * @return La copertina del libro
+     */
     public String getPath() {
         return path;
     }
 
+    /**
+     * Questo metodo setta la copertina del libro
+     */
     public void setPath(String path) {
         this.path = path;
     }
 
+    /**
+     * Questo metodo restituisce il numero di pagine del libro
+     * @return Il numero di pagine del libro
+     */
     public int getPages() {
         return pages;
     }
 
+    /**
+     * Questo metodo setta il numero di pagine del libro
+     */
     public void setPages(int pages) {
         this.pages = pages;
     }
 
+    /**
+     * Questo metodo restituisce la descrizione del libro
+     * @return La descrizione del libro
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Questo metodo setta la descrizione del libro
+     */
     public void setDescription(String description) {
         this.description = description;
     }

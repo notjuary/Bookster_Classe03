@@ -10,10 +10,14 @@ import java.sql.SQLException;
 @WebServlet(name = "LettoreDAO", value = "/LettoreDAO")
 public class BookDAO extends HttpServlet {
 
+    /**
+     * Questo metodo salva un oggetto libro e aggiorna il riferimento al lettore nel database.
+     * @param b L'oggetto libro da salvare nel database.
+     * @param lettore L'oggetto lettore da salvare nel database.
+     */
     public static void doSave(Book b, Lettore lettore){
 
         try(Connection connection= ConPool.getConnection()) {
-
             PreparedStatement ps = connection.prepareStatement("INSERT INTO libro(isbn,titolo,autore,pathcopertina,pagine)VALUES(?,?,?,?,?)");
 
             ps.setString(1,b.getIsbn());
