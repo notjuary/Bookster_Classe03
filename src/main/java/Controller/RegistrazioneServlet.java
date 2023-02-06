@@ -35,7 +35,6 @@ public class RegistrazioneServlet extends HttpServlet {
      * @see Lettore
      * @see LettoreDAO
      */
-
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String username = request.getParameter("username");

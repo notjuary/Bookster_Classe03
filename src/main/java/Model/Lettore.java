@@ -79,4 +79,19 @@ public class Lettore {
     public void setPunteggio(int punteggio) {
         this.punteggio = punteggio;
     }
+
+    @Override
+    public String toString() {
+        return "Lettore{" +
+                "username='" + username + '\'' +
+                ", psw='" + psw + '\'' +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", email='" + email + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", genere='" + genere + '\'' +
+                ", ddn=" + ddn +
+                ", punteggio=" + punteggio +
+                '}';
+    }
 }

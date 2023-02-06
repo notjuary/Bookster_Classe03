@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "LettoreDAO", value = "/LettoreDAO")
 public class LettoreDAO extends HttpServlet {
@@ -68,9 +69,9 @@ public class LettoreDAO extends HttpServlet {
         }
     }
 
-    public static ArrayList<Lettore> doRetriveUtente() {
+    public static List<Lettore> doRetriveUtente() {
 
-        ArrayList<Lettore> listLettore=new ArrayList<Lettore>();
+        List<Lettore> listLettore = new ArrayList<Lettore>();
 
         try (Connection connection = ConPool.getConnection()) {
 
