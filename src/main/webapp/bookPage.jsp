@@ -84,7 +84,7 @@
                     <span class="material-symbols-outlined">menu_book</span> Aggiungi alla libreria
                 </button>
                 <span class="material-symbols-outlined favourite" onclick="window.location.href='LibraryBookInfoServlet?action=preferiti'">favorite</span>
-                </form>
+
             </div>
         </div>
     </main>

@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Book;
+import Model.Libreria;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -28,15 +29,19 @@ public class LibraryBookInfoServlet  extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getSession().getAttribute("lettore")==null) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
+        }else {
+            String action = request.getParameter("action");
+            title = (String) request.getSession().getAttribute("title");
 
-        String action = request.getParameter("action");
-        title = (String) request.getSession().getAttribute("title");
-
-        if (action != null) {
-            if (action.equalsIgnoreCase("libreria")) {
-                doGetAddToLib(request, response);
-            } else if (action.equalsIgnoreCase("preferiti")) {
-                doGetAddFavourite(request, response);
+            if (action != null) {
+                if (action.equalsIgnoreCase("libreria")) {
+                    doGetAddToLib(request, response);
+                } else if (action.equalsIgnoreCase("preferiti")) {
+                    doGetAddFavourite(request, response);
+                }
             }
         }
     }
@@ -89,7 +94,14 @@ public class LibraryBookInfoServlet  extends HttpServlet {
             session.setAttribute("libraryList", libraryList);
         }
 
-
+        List<Book> libraryList = (List<Book>) session.getAttribute("libraryList");
+        Libreria libreria=(Libreria) session.getAttribute("libreria");
+        if(libraryList==null){
+            libreria.setNumeroLibri(0);
+        }else {
+            libreria.setNumeroLibri(libraryList.size());
+        }
+            session.setAttribute("libreria",libreria);
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }
@@ -158,7 +170,10 @@ public class LibraryBookInfoServlet  extends HttpServlet {
 
             session.setAttribute("libraryFavourite", libraryFavourite);
         }
-
+        List<Book> libraryFavourite = (List<Book>) session.getAttribute("libraryFavourite");
+        Libreria libreria= (Libreria) session.getAttribute("libreria");
+        libreria.setNumeroLibri(libreria.getNumeroLibri()+libraryFavourite.size());
+        session.setAttribute("libreria",libreria);
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }

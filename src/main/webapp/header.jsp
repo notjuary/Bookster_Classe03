@@ -58,7 +58,7 @@
                 </div>
             </a>
 
-            <a href=""> <span class="material-symbols-outlined book">book</span> </a>
+            <a href="libraryPage.jsp"> <span class="material-symbols-outlined book">book</span> </a>
     </div>
 </header>
 

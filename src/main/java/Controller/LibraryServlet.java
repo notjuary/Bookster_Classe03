@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.Book;
+import Model.Lettore;
+import Model.Libreria;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,7 +18,7 @@ import java.util.List;
 @WebServlet(name = "LibraryServlet", value = "/LibraryServlet")
 public class LibraryServlet extends HttpServlet {
     private int index;
-
+    private Libreria libreria;
     /**
      * Questo metodo viene eseguito quando una richiesta GET viene inviata al servlet.
      * Il metodo esegue un'azione basata sul parametro "action" presente nella richiesta.
@@ -29,19 +31,27 @@ public class LibraryServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    if(request.getSession().getAttribute("lettore")==null){
+        RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+        dispatcher.forward(request, response);
+    }else {
+        libreria = new Libreria();
+        Lettore lettore = (Lettore) request.getSession().getAttribute("lettore");
+        libreria.setTitolo("Libreria di: " + lettore.getUsername());
 
         String action = request.getParameter("action");
-        String[] actionSplit=action.split(",");
-        action=actionSplit[0];
-        String temp=actionSplit[1];
-        String[]indexSplit=temp.split("=");
-        index=Integer.parseInt(indexSplit[1]);
+        String[] actionSplit = action.split(",");
+        action = actionSplit[0];
+        String temp = actionSplit[1];
+        String[] indexSplit = temp.split("=");
+        index = Integer.parseInt(indexSplit[1]);
 
         if (action != null) {
-            if (action.equalsIgnoreCase("libreria")) {
-                doGetAddToLib(request, response);
-            }else if(action.equalsIgnoreCase("preferiti")){
-                doGetAddFavourite(request,response);
+                if (action.equalsIgnoreCase("libreria")) {
+                    doGetAddToLib(request, response);
+                } else if (action.equalsIgnoreCase("preferiti")) {
+                    doGetAddFavourite(request, response);
+                }
             }
         }
     }
@@ -62,6 +72,7 @@ public class LibraryServlet extends HttpServlet {
     protected void doGetAddToLib(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         List<Book> list = (List<Book>) session.getAttribute("bookList");
+
 
 
         if (session.getAttribute("libraryList") == null) {
@@ -96,7 +107,14 @@ public class LibraryServlet extends HttpServlet {
         }
 
 
+        List<Book> libraryList = (List<Book>) session.getAttribute("libraryList");
+        if(libraryList==null){
+            libreria.setNumeroLibri(0);
+        }else {
+            libreria.setNumeroLibri(libraryList.size());
+        }
 
+        session.setAttribute("libreria",libreria);
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }
@@ -170,7 +188,10 @@ public class LibraryServlet extends HttpServlet {
         }
 
 
-
+        List<Book> libraryFavourite = (List<Book>) session.getAttribute("libraryFavourite");
+        Libreria lib= (Libreria) session.getAttribute("libreria");
+        libreria.setNumeroLibri(lib.getNumeroLibri()+libraryFavourite.size());
+        session.setAttribute("libreria",libreria);
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }

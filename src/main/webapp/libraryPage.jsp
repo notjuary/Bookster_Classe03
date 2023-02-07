@@ -1,5 +1,6 @@
 <%@ page import="Model.Book" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="Model.Libreria" %><%--
   Created by IntelliJ IDEA.
   User: Francesco Barlotti
   Date: 04/02/2023
@@ -17,18 +18,33 @@
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/catalog.css">
+
 </head>
 <body>
 <%@ include file="header.jsp"%>
 
-<main class="section">
-    <div id="productContainerID" class="productContainer">
-            <p1>Your library</p1>
-            <%
-      List<Book> list=null;
 
-      if(request.getSession().getAttribute("libraryList")!=null){
-      list = (List<Book>) request.getSession().getAttribute("libraryList");
+<main class="section">
+
+    <div id="productContainerID" class="productContainer">
+
+            <% List<Book> list=null;
+      if(request.getSession().getAttribute("libraryList")==null){ %>
+        <div class="card">
+                <div class="buttons" id="buttons">
+                    <button class="addToLib" name="addToLib" onclick="window.location.href='login.jsp'">Crea libreria</button>
+                </div>
+        </div>
+     <% }else if(request.getSession().getAttribute("libraryList")!=null && request.getSession().getAttribute("libreria")!=null){
+          Libreria libreria= (Libreria) request.getSession().getAttribute("libreria"); %>
+                <div class="card">
+                    <div class="info">
+                        <div class="title"><span><%=libreria.getTitolo()%></span>
+                            <span>Numero libri:<%=libreria.getNumeroLibri()%></span></div>
+                    </div>
+
+                </div>
+      <% list = (List<Book>) request.getSession().getAttribute("libraryList");
 
 
       for (int i = 0; i < list.size(); i++)
@@ -47,6 +63,7 @@
             </div>
 
         </div>
+    </div>
             <% }
     }
 %>
@@ -54,12 +71,21 @@
 </main>
 <hr width="100%" />
 <main class="section">
-    <div id="productFavouriteContainerID" class="productContainer">
+    <div id="productContainerID" class="productContainer">
 
-        <p1>Your favourites</p1>
             <%
-      if(request.getSession().getAttribute("libraryFavourite")!=null){
-        List<Book> listFavorite = (List<Book>) request.getSession().getAttribute("libraryFavourite");
+      if(request.getSession().getAttribute("libraryFavourite")==null){ %>
+        <div class="card">
+            <div class="buttons" id="buttons">
+                <button class="addToLib" name="addToLib" onclick="window.location.href='login.jsp'">Crea libreria</button>
+            </div>
+        </div>
+                <%} else if(request.getSession().getAttribute("libraryFavourite")!=null && request.getSession().getAttribute("libreria")!=null){ %>
+                <div class="card">
+                        <div class="info">
+                        <div class="title"><span>Libri preferiti</span>
+                    </div>
+                   <% List<Book> listFavorite = (List<Book>) request.getSession().getAttribute("libraryFavourite");
 
 
       for (int i = 0; i < listFavorite.size(); i++)
@@ -78,7 +104,8 @@
             </div>
 
         </div>
-            <% }
+                        </div>
+                <% }
     }
 %>
 
