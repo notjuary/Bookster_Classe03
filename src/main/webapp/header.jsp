@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/header.css">
-    <script src="resources/javascript/validateSearch.js"></script>
 </head>
 <body>
 <header class="header">
@@ -38,7 +37,7 @@
                 <%
                 } else{
             %>
-            <a href="ServletAccount">
+            <a href="profile.jsp">
                 <%
                     }
                 %>
@@ -46,11 +45,7 @@
                     <%
                         if(lettore != null) {
                     %>
-
                     <h3 class="userName">Ciao <%=lettore.getUsername()+"!"%> </h3>
-
-                    <div class="lecterCircle"><%=lettore.getUsername().substring(0,1).toUpperCase()%></div>
-
                     <%
                         }
                     %>
@@ -59,16 +54,17 @@
             </a>
 
             <a href="libraryPage.jsp"> <span class="material-symbols-outlined book">book</span> </a>
-    </div>
-</header>
+        </div>
+    </header>
 
-<!-- Navigation Bar -->
-<nav class="navigationBar">
-    <a href="sales.jsp" class="underlineEffect">Sessione</a>
-    <a href="catalog.jsp" class="underlineEffect">Catalogo</a>
-    <a href="news.jsp" class="underlineEffect">Novità</a>
-    <a href="partnership.jsp" class="underlineEffect">Consigliati</a>
-</nav>
+    <!-- Navigation Bar -->
+    <nav class="navigationBar">
+        <a href="sessione.jsp" class="underlineEffect">Sessione</a>
+        <a href="RankingServlet" class="underlineEffect">Classifica</a>
+        <a href="news.jsp" class="underlineEffect">Novità</a>
+        <a href="consigliati.jsp" class="underlineEffect">Consigliati</a>
+    </nav>
 
 </body>
+<script src="resources/javascript/validateSearch.js"></script>
 </html>

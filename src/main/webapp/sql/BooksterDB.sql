@@ -41,5 +41,7 @@ CREATE TABLE Recensione(
 );
 
 INSERT INTO Lettore VALUES
-	("Goor1979",SHA1("tie1IJiengei"),"Demetrio","De Luca","demetriodeluca@teleworm.us",'2001-02-24',"3456003403",null,0),
-	("Howl1944",SHA1("pei7Hoh0f"),"Ninfa", "Lo Duca","ninfaloduca@armyspy.com",'1987-10-05',"3456003403",null,50);
+("Goor1979",SHA1("tie1IJiengei"),"Demetrio","De Luca","demetriodeluca@teleworm.us",'2001-02-24',"3456003403",null,0),
+("Andrew1995",SHA1("ikaHw5uB6gJL"),"Andrew","Jacked","a.jacked@gmail.com",'1995-12-31',"3456003403",null,76),
+("Steve7830",SHA1("pu3jv9CwkAvu"),"Steve","La Spada","stevelspd@armyspy.com",'2000-04-03',"3456003403",null,23),
+("Howl1944",SHA1("pei7Hoh0f"),"Ninfa", "Lo Duca","ninfaloduca@libero.it",'1987-10-05',"3456003403",null,50);

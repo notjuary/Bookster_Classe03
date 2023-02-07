@@ -33,6 +33,11 @@ public class RankingServlet extends HttpServlet {
         });
 
         request.setAttribute("ranking", ranking);
-        getServletConfig().getServletContext().getRequestDispatcher("/ranking.jsp").forward(request, response);
+
+        String indirizzo = "classifica.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(indirizzo);
+        requestDispatcher.include(request, response);
+
+        //getServletConfig().getServletContext().getRequestDispatcher("/ranking.jsp").forward(request, response);
     }
 }

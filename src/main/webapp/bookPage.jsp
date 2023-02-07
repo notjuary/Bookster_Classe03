@@ -17,6 +17,7 @@
 
     <title>Bookster: <%=book.getTitle()%></title>
     <link rel="stylesheet" href="style/bookPage.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <%@ include file="header.jsp"%>
