@@ -114,6 +114,7 @@ public class LettoreDAO extends HttpServlet {
             return listLettore;
         }
 
+
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -138,6 +139,25 @@ public class LettoreDAO extends HttpServlet {
         }
 
         catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void upgradePunteggio(String username, int punteggio) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("UPDATE Lettore SET punteggio = punteggio + ? WHERE username = ?");
+            ps.setInt(1, punteggio);
+            ps.setString(2, username);
+
+            int result = ps.executeUpdate();
+            if (result == 0) {
+                System.out.println("User not found");
+            } else {
+                System.out.println("User's score upgraded");
+            }
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
