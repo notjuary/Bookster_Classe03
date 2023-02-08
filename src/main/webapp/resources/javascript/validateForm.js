@@ -91,7 +91,7 @@ function validateForm() {
         alert('La password deve contenere almeno una lettera maiuscola');
         return false;
     }
-
+zz
     if (!hasNumber(password)) {
         alert('La password deve contenere almeno un numero');
         return false;

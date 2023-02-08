@@ -43,22 +43,24 @@
         }
 
         function sendRedirect() {
-            if (validateFormSearch())
+            if (validateFormSearch()) {
+                document.getElementById("myForm").action = "SearchServlet";
                 document.getElementById("myForm").submit();
+            }
         }
     </script>
 </head>
 <body>
 <header class="header">
     <div class="utility">
-        <form class="searchBox" action="SearchServlet" method="get" id="myForm">
+        <form class="searchBox" onsubmit="sendRedirect()" method="get" id="myForm">
             <select id="selectionInput" name="selectionInput">
                 <option value="title" selected="title">Titolo</option>
                 <option value="author">Autore</option>
                 <option value="isbn">ISBN</option>
             </select>
             <input type="text" id="searchInput" name="searchBar">
-            <button type="button" onclick="validateFormSearch()" class="searchButton">
+            <button type="submit" class="searchButton">
                 <span class="material-symbols-outlined search">search</span>
             </button>
         </form>
