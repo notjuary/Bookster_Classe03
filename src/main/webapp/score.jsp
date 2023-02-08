@@ -11,7 +11,10 @@
                 timerRunning = true;
                 timer = setInterval(function() {
                     elapsedTime++;
-                    document.getElementById("time").innerHTML = elapsedTime;
+                    let hours = Math.floor(elapsedTime / 3600);
+                    let minutes = Math.floor((elapsedTime % 3600) / 60);
+                    let seconds = elapsedTime % 60;
+                    document.getElementById("time").innerHTML = hours + ":" + minutes + ":" + seconds;
                 }, 1000);
             }
         }
@@ -37,7 +40,7 @@
                 } else {
                     alert("False");
                     elapsedTime = 0;
-                    document.getElementById("time").innerHTML = elapsedTime;
+                    document.getElementById("time").innerHTML = "0:0:0";
                 }
             } else {
                 startTimer();
@@ -46,7 +49,7 @@
     </script>
 </head>
 <body>
-<div id="time">0</div>
+<div id="time">0:0:0</div>
 <button onclick="startTimer()">Start</button>
 <button onclick="pauseTimer()">Pause</button>
 <button onclick="stopTimer()">Stop</button>
