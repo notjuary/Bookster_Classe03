@@ -5,6 +5,48 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/header.css">
+    <script>
+        function validateFormSearch() {
+
+            let selectionInput = document.getElementById('selectionInput').value;
+            let searchInput = document.getElementById('searchInput').value;
+
+            if (!["isbn", "author", "title"].includes(selectionInput)) {
+                alert('Errore selection input');
+                return false;
+            }
+
+            switch (selectionInput) {
+                case "isbn":
+                    if (!/^\d{10}$|^\d{13}$/.test(searchInput)) {
+                        alert("Errore isbn")
+                        return false;
+                    }
+                    break;
+                case "author":
+                    if (!/^[a-zA-Z\s]{1,100}$/.test(searchInput)) {
+                        alert("Errore autore")
+                        return false;
+                    }
+                    break;
+                case "title":
+                    if (!/^[a-zA-Z\s0-9]{1,30}$/.test(searchInput)) {
+                        alert("Errore titolo")
+                        return false;
+                    }
+                    break;
+                default:
+                    return false;
+            }
+
+            return true;
+        }
+
+        function sendRedirect() {
+            if (validateFormSearch())
+                document.getElementById("myForm").submit();
+        }
+    </script>
 </head>
 <body>
 <header class="header">
@@ -16,7 +58,7 @@
                 <option value="isbn">ISBN</option>
             </select>
             <input type="text" id="searchInput" name="searchBar">
-            <button type="button" onclick="validateForm()" class="searchButton">
+            <button type="button" onclick="validateFormSearch()" class="searchButton">
                 <span class="material-symbols-outlined search">search</span>
             </button>
         </form>
@@ -66,5 +108,4 @@
     </nav>
 
 </body>
-<script src="resources/javascript/validateSearch.js"></script>
 </html>

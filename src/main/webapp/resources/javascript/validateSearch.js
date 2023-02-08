@@ -1,4 +1,4 @@
-function validateForm() {
+function validateFormSearch() {
 
     let selectionInput = document.getElementById('selectionInput').value;
     let searchInput = document.getElementById('searchInput').value;
