@@ -143,6 +143,11 @@ public class LettoreDAO extends HttpServlet {
         }
     }
 
+    /**
+     * Questa funzione si occupa di aggiornare il punteggio di un utente nel sistema.
+     * @param username Il nome utente del lettore
+     * @param punteggio Il valore di punteggio da aggiungere al punteggio esistente
+     */
     public static void upgradePunteggio(String username, int punteggio) {
 
         try (Connection connection = ConPool.getConnection()) {
