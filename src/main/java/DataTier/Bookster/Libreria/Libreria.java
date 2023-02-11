@@ -1,4 +1,4 @@
-package Model;
+package DataTier.Bookster.Libreria;
 
 public class Libreria {
     private String titolo;

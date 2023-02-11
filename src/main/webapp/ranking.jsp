@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="Model.Lettore" %>
+<%@ page import="DataTier.Bookster.Lettore.Lettore" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

@@ -1,4 +1,4 @@
-package Model;
+package DataTier.Bookster.Lettore;
 
 import java.sql.Date;
 

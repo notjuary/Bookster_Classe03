@@ -1,5 +1,6 @@
-package Model;
+package DataTier.Bookster.Lettore;
 
+import DataTier.Bookster.ConPool;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 

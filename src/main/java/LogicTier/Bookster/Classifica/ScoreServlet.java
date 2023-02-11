@@ -1,7 +1,7 @@
-package Controller;
+package LogicTier.Bookster.Classifica;
 
-import Model.Lettore;
-import Model.LettoreDAO;
+import DataTier.Bookster.Lettore.Lettore;
+import DataTier.Bookster.Lettore.LettoreDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

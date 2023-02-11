@@ -1,7 +1,7 @@
-package Controller;
+package LogicTier.Bookster.Login;
 
-import Model.Lettore;
-import Model.LettoreDAO;
+import DataTier.Bookster.Lettore.Lettore;
+import DataTier.Bookster.Lettore.LettoreDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

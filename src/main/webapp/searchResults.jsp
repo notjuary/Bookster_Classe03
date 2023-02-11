@@ -1,4 +1,4 @@
-<%@ page import="Model.Book" %>
+<%@ page import="DataTier.Bookster.Book.Book" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

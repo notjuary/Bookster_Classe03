@@ -1,8 +1,8 @@
-package Controller;
+package LogicTier.Bookster.Book;
 
-import Model.Book;
-import Model.BookDAO;
-import Model.Lettore;
+import DataTier.Bookster.Book.Book;
+import DataTier.Bookster.Book.BookDAO;
+import DataTier.Bookster.Lettore.Lettore;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
