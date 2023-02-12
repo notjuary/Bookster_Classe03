@@ -58,6 +58,10 @@ public class Book {
             this.description = description;
      }
 
+    public boolean bookValidate(String ISBN){
+        return ISBN.length() == 10 || ISBN.length() == 13;
+    }
+
     /**
      * Questo metodo restituisce il valore dell'ISBN.
      * @return Il valore dell'ISBN.
