@@ -55,7 +55,7 @@ public class SearchServlet extends HttpServlet {
                 break;
             }
             case "author": {
-                if (parameter.length() > 100 || parameter.length() < 1)
+                if (parameter.length() > 30 || parameter.length() < 1)
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
                 else if (!parameter.matches("^[a-zA-Z\\s]+$"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
@@ -64,7 +64,7 @@ public class SearchServlet extends HttpServlet {
                 break;
             }
             case "title": {
-                if (parameter.length() > 30 || parameter.length() < 1)
+                if (parameter.length() > 100 || parameter.length() < 1)
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
                 else if (!parameter.matches("^[a-zA-Z\\s0-9]+$"))
                     getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
