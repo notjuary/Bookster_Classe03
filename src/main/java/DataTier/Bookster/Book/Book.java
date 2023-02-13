@@ -60,8 +60,45 @@ public class Book {
             this.description = description;
      }
 
-    public boolean bookValidate(String ISBN){
+    // ISBN
+
+    public boolean validateLenghtBookISBN(String ISBN) {
         return ISBN.length() == 10 || ISBN.length() == 13;
+    }
+
+    public boolean validateSyntaxBookISBN(String ISBN) {
+        return ISBN.matches("[0-9]+");
+    }
+
+    public boolean validateISBN(String ISBN) {
+        return validateLenghtBookISBN(ISBN) && validateSyntaxBookISBN(ISBN);
+    }
+
+    // Title
+
+    public boolean validateLenghtBookTitle(String title) {
+        return title.length() >= 1 && title.length() <= 100;
+    }
+
+    public boolean validateSyntaxBookTitle(String title) {
+        return title.matches("^[a-zA-Z\\s]+$");
+    }
+
+    public boolean validateTitle(String title) {
+         return validateLenghtBookTitle(title) && validateSyntaxBookTitle(title);
+    }
+
+    // Author
+    public boolean validateLenghtBookAuthor(String author) {
+        return author.length() >= 1 && author.length() <= 30;
+    }
+
+    public boolean validateSyntaxBookAuthor(String author) {
+        return author.matches("^[a-zA-Z\\s]+$");
+    }
+
+    public boolean validateAuthor(String author) {
+        return validateLenghtBookAuthor(author) && validateSyntaxBookAuthor(author);
     }
 
     /**
