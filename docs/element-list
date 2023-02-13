@@ -1,0 +1,9 @@
+DataTier.Bookster
+DataTier.Bookster.Book
+DataTier.Bookster.Lettore
+DataTier.Bookster.Libreria
+LogicTier.Bookster.Book
+LogicTier.Bookster.Classifica
+LogicTier.Bookster.Libreria
+LogicTier.Bookster.Login
+LogicTier.Bookster.Registrazione
