@@ -1,0 +1,50 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+.container{
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 3rem;
+    grid-template-areas:
+    'library favorite'
+    'addBook addBook';
+}
+
+.containerLibrary{
+    grid-area: library;
+    min-height: 10rem;
+    border: 1px solid red;
+}
+
+.containerFavorite{
+    grid-area: favorite;
+    min-height: 10rem;
+    border: 1px solid red;
+}
+
+.button--addBok{
+    grid-area: addBook;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.3rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-100);
+    border: none;
+    border-radius: 20px;
+    background-color: var(--color-900);
+}
+
+.button--addBok:hover{
+    cursor: pointer;
+    background-color: var(--color-800);
+}

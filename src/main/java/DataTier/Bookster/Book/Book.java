@@ -101,6 +101,38 @@ public class Book {
         return validateLenghtBookAuthor(author) && validateSyntaxBookAuthor(author);
     }
 
+    public boolean validateNumberPages(String numPages) {
+         if(numPages.matches("[0-9]+") == true) {
+             int number = Integer.parseInt(numPages);
+
+             if (number > 0) {
+                 return true;
+             } else {
+                 return false;
+             }
+        } else {
+             return false;
+         }
+    }
+
+    // Inserimento del libro manuale
+    public boolean validateInsert(String ISBN) {
+         return validateISBN(ISBN);
+    }
+
+    public boolean validateInsert(String ISBN, String title) {
+        return validateISBN(ISBN) && validateTitle(title);
+    }
+
+    public boolean validateInsert(String ISBN, String title, String author) {
+        return validateISBN(ISBN) && validateTitle(title) && validateAuthor(author);
+    }
+
+    public boolean validateInsert(String ISBN, String title, String author, String numPages) {
+        return validateISBN(ISBN) && validateTitle(title) && validateAuthor(author)
+        && validateNumberPages(numPages);
+    }
+
     /**
      * Questo metodo restituisce il valore dell'ISBN.
      * @return Il valore dell'ISBN.

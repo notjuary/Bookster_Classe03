@@ -8,6 +8,7 @@
     --color-100-transparent: rgb(255, 255, 255, 50%);
     --color-300: rgb(253, 232, 233);
     --color-500: rgb(227, 186, 198);
+    --color-500-transparent: rgb(227, 186, 198, 50%);
     --color-700: rgb(188, 158, 193);
     --color-700-transparent: rgb(188, 158, 193, 50%);
     --color-800: rgb(89, 100, 117);
@@ -55,7 +56,7 @@ main{
 }
 
 .underline{
-    text-decoration: underline var(--color-900) 2px;
+    text-decoration: underline var(--color-500) 2px;
 }
 
 .underlineDiv{

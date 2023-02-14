@@ -20,40 +20,40 @@ class BookISBNTest {
     void ISBNTest1() {
         String inputISBN = "58039102"; //8 cifre
 
-        Mockito.when(book.validateLenghtBookISBN(inputISBN)).thenReturn(false);
-        assertFalse(book.validateLenghtBookISBN(inputISBN));
+        Mockito.when(book.validateISBN(inputISBN)).thenReturn(false);
+        assertFalse(book.validateISBN(inputISBN));
     }
 
     @Test
     void ISBNTest2() {
         String inputISBN = "58039102645"; //11 cifre
 
-        Mockito.when(book.validateLenghtBookISBN(inputISBN)).thenReturn(false);
-        assertFalse(book.validateLenghtBookISBN(inputISBN));
+        Mockito.when(book.validateISBN(inputISBN)).thenReturn(false);
+        assertFalse(book.validateISBN(inputISBN));
     }
 
     @Test
     void ISBNTest3() {
         String inputISBN = "58039102645451"; //14 cifre
 
-        Mockito.when(book.validateLenghtBookISBN(inputISBN)).thenReturn(false);
-        assertFalse(book.validateLenghtBookISBN(inputISBN));
+        Mockito.when(book.validateISBN(inputISBN)).thenReturn(false);
+        assertFalse(book.validateISBN(inputISBN));
     }
 
     @Test
     void ISBNTest4() {
         String inputISBN = "Manzoni1827"; //ISBN contenente caratteri non numerici
 
-        Mockito.when(book.validateSyntaxBookISBN(inputISBN)).thenReturn(false);
-        assertFalse(book.validateSyntaxBookISBN(inputISBN));
+        Mockito.when(book.validateISBN(inputISBN)).thenReturn(false);
+        assertFalse(book.validateISBN(inputISBN));
     }
 
     @Test
     void ISBNTest5() {
         String inputISBN = "Manzoni"; //ISBN contenente caratteri non numerici
 
-        Mockito.when(book.validateSyntaxBookISBN(inputISBN)).thenReturn(false);
-        assertFalse(book.validateSyntaxBookISBN(inputISBN));
+        Mockito.when(book.validateISBN(inputISBN)).thenReturn(false);
+        assertFalse(book.validateISBN(inputISBN));
     }
 
     @Test

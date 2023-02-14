@@ -1,0 +1,62 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 60%;
+    margin: 3rem auto;
+    padding: 1rem;
+    border: 1px solid var(--color-500);
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px var(--color-500-transparent);
+}
+
+#formAddBook{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+#formAddBook div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#formAddBook div label{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#formAddBook div input{
+    font-size: 1.3rem;
+    font-weight: 300;
+    border: solid 1px var(--color-900);
+    border-radius: 10px 10px 10px 10px;
+    padding: 0.5rem;
+}
+
+#addBook input{
+    margin: 1rem 0 0 0;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-100);
+    border: none;
+    border-radius: 20px;
+    background-color: var(--color-900);
+}
+
+#addBook input:hover{
+    cursor: pointer;
+    background-color: var(--color-800);
+}

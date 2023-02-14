@@ -19,22 +19,14 @@ public class BookAuthorTest {
 
     @Test
     void AuthorTest1() {
-        String inputAuthor = ""; //Lunghezza 0
+        String inputAuthor = "4";
 
-        Mockito.when(book.validateLenghtBookAuthor(inputAuthor)).thenReturn(false);
-        assertFalse(book.validateLenghtBookAuthor(inputAuthor));
+        Mockito.when(book.validateAuthor(inputAuthor)).thenReturn(false);
+        assertFalse(book.validateAuthor(inputAuthor));
     }
 
     @Test
-    void AuthorTest2() { //Lunghezza maggiore di 30
-        String inputAuthor = "Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa.";
-
-        Mockito.when(book.validateLenghtBookAuthor(inputAuthor)).thenReturn(false);
-        assertFalse(book.validateLenghtBookAuthor(inputAuthor));
-    }
-
-    @Test
-    void AuthorTest3() {
+    void AuthorTest2() {
 
         String inputAuthor = "Pi3ro Ang3l4"; //Lunghezza maggiore di 0 e caratteri validi
 
@@ -43,7 +35,7 @@ public class BookAuthorTest {
     }
 
     @Test
-    void AuthorTest4() {
+    void AuthorTest3() {
         String inputAuthor = "Stephen King"; //Lunghezza maggiore di 0 e caratteri validi
 
         Mockito.when(book.validateAuthor(inputAuthor)).thenReturn(true);

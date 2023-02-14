@@ -18,7 +18,36 @@
 <%@ include file="header.jsp"%>
 
 <main>
+    <div class="container">
+        <div class="containerLibrary">
+            <h3 style="text-align: center; text-transform: uppercase;">Libreria</h3>
+        </div>
 
+        <div  class="containerFavorite">
+            <h3 style="text-align: center; text-transform: uppercase;">Preferiti</h3>
+            <%
+                List<Book> libraryFavourite = (List<Book>) session.getAttribute("libraryFavourite");
+                if(libraryFavourite != null) {
+                    for(Book b : libraryFavourite) {
+            %>
+                <div class="book">
+                    <div class="thumbnail">
+                        <img src="<%=b.getPath()%>">
+                    </div>
+                    <div class="info">
+                        <p><%=b.getTitle()%></p>
+                        <p><%=b.getAuthor()%></p>
+                        <p><%=b.getPages()%></p>
+                    </div>
+                </div>
+            <%
+                    }
+                }
+            %>
+        </div>
+
+        <div class="button--addBok" onclick="window.location.href='insert.jsp'">Clicca qui per inserire un libro manualmente</div>
+    </div>
 </main>
 
 <%@ include file="footer.jsp"%>
