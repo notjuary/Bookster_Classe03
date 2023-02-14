@@ -138,8 +138,23 @@ public class SignupTest {
         String inputDate = "09/06/2003";
         String inputEmail = "giacomo.verdi@gmail";
         String inputPassword = "Spk09!";
+        String inputTelefono = "H477446LN4p?";
 
-        Mockito.when(signup.validateSignup(inputName, inputSurname, inputUsername, inputDate, inputEmail, inputPassword)).thenReturn(true);
-        assertTrue(signup.validateSignup(inputName, inputSurname, inputUsername, inputDate, inputEmail, inputPassword));
+        Mockito.when(signup.validateSignup(inputName, inputSurname, inputUsername, inputDate, inputEmail, inputPassword, inputTelefono)).thenReturn(false);
+        assertFalse(signup.validateSignup(inputName, inputSurname, inputUsername, inputDate, inputEmail, inputPassword, inputTelefono));
+    }
+
+    @Test
+    void SignupTestPassword13() {
+        String inputName = "Giacomo";
+        String inputSurname = "Verdi";
+        String inputUsername = "Spark";
+        String inputDate = "09/06/2003";
+        String inputEmail = "giacomo.verdi@gmail";
+        String inputPassword = "Spk09!";
+        String inputTelefono = "8609870038?";
+
+        Mockito.when(signup.validateSignup(inputName, inputSurname, inputUsername, inputDate, inputEmail, inputPassword, inputTelefono)).thenReturn(true);
+        assertTrue(signup.validateSignup(inputName, inputSurname, inputUsername, inputDate, inputEmail, inputPassword, inputTelefono));
     }
 }

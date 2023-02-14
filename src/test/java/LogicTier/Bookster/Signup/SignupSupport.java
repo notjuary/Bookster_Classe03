@@ -43,6 +43,14 @@ public class SignupSupport {
         return password.length() >= 6 && password.length() <= 20;
     }
 
+    public boolean validateTelephone(String telephone) {
+        if(telephone.matches("[0-9]+") == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public boolean validateSignup(String name) {
         return validateSyntaxNameSurname(name);
     }
@@ -70,5 +78,11 @@ public class SignupSupport {
         return validateSyntaxNameSurname(name) && validateSyntaxNameSurname(surname)
                 && validateSyntaxUsername(username) && validateDate(ddn) && validateSyntaxEmail(email)
                 && validateLenghtPassword(password);
+    }
+
+    public boolean validateSignup(String name, String surname, String username, String ddn, String email, String password, String telefono) {
+        return validateSyntaxNameSurname(name) && validateSyntaxNameSurname(surname)
+                && validateSyntaxUsername(username) && validateDate(ddn) && validateSyntaxEmail(email)
+                && validateLenghtPassword(password) && validateTelephone(password);
     }
 }
