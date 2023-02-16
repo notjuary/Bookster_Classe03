@@ -37,5 +37,5 @@ main{
     font-weight: 500;
     color: white;
     background: var(--color-700);
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0 20px 20px 0;
 }

@@ -10,9 +10,6 @@
     <%
         Book book = (Book) request.getAttribute("book");
         String isbn = (String) request.getSession().getAttribute("isbn");
-
-        // Da cancellare
-        System.out.println(isbn);
     %>
 
     <title>Bookster: <%=book.getTitle()%></title>

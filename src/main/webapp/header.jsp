@@ -93,11 +93,20 @@
                     <%
                         }
                     %>
+
                     <span class="material-symbols-outlined user">account_circle</span>
+
                 </div>
             </a>
 
+            <%
+                if(!(request.getSession() == null || lettore == null)) {
+            %>
+
             <a href="libraryPage.jsp"> <span class="material-symbols-outlined book">book</span> </a>
+            <%
+                }
+            %>
         </div>
     </header>
 
@@ -105,7 +114,6 @@
     <nav class="navigationBar">
         <a href="sessione.jsp" class="underlineEffect">Sessione</a>
         <a href="RankingServlet" class="underlineEffect">Classifica</a>
-        <a href="news.jsp" class="underlineEffect">Novità</a>
         <a href="consigliati.jsp" class="underlineEffect">Consigliati</a>
     </nav>
 
