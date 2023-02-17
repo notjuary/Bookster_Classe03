@@ -14,12 +14,6 @@ CREATE TABLE Lettore(
                         punteggio int not null
 );
 
-CREATE TABLE Classifica(
-                           id int(10) primary key,
-                           partecipanti int(255) not null,
-                           periodo date not null
-);
-
 CREATE TABLE Libro(
                       isbn varchar(13) primary key,
                       titolo varchar(100) not null,
