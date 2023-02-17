@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         final Pattern EMAIL_REGEX = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
 
         if (!EMAIL_REGEX.matcher(email).matches()) {
-            request.getRequestDispatcher("login.html").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             Lettore l = LettoreDAO.doLogin(email, password);
             HttpSession session = request.getSession();

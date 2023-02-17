@@ -21,6 +21,25 @@
     <div class="container">
         <div class="containerLibrary">
             <h3 style="text-align: center; text-transform: uppercase;">Libreria</h3>
+            <%
+                List<Book> libraryList = (List<Book>) session.getAttribute("libraryList");
+                if(libraryList != null) {
+                    for(Book b : libraryList) {
+            %>
+            <div class="book">
+                <div class="thumbnail">
+                    <img src="<%=b.getPath()%>">
+                </div>
+                <div class="info">
+                    <p><%=b.getTitle()%></p>
+                    <p><%=b.getAuthor()%></p>
+                    <p><%=b.getPages()%></p>
+                </div>
+            </div>
+            <%
+                    }
+                }
+            %>
         </div>
 
         <div  class="containerFavorite">

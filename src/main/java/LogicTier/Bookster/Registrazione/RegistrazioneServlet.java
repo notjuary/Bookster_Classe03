@@ -47,37 +47,37 @@ public class RegistrazioneServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phone");
 
         if (name.length() < 2 || name.length() > 30 || lastName.length() < 2 || lastName.length() > 30) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
             dispatcher.forward(request, response);
         }
 
         if (dateOfBirth.toString().equals("")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
             dispatcher.forward(request, response);
         }
 
         LocalDate today = LocalDate.now();
         Period age = Period.between(LocalDate.parse(dateOfBirth.toString()), today);
         if (age.getYears() < 12) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
             dispatcher.forward(request, response);
         }
 
             final Pattern EMAIL_REGEX = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
         if (!EMAIL_REGEX.matcher(email).matches()) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
             dispatcher.forward(request, response);
         }
 
         if (phoneNumber != null && phoneNumber.length() <= 20)
             if (!phoneNumber.matches("\\d+")) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
                 dispatcher.forward(request, response);
             }
 
         if (username != null && username.length() <= 20)
             if (!username.matches("^[a-zA-Z0-9]+$")) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
                 dispatcher.forward(request, response);
             }
 
@@ -108,7 +108,7 @@ public class RegistrazioneServlet extends HttpServlet {
         boolean isEqual = password.equals(confirmPassword);
 
         if (!hasNumber || !hasLength || !hasSpecialChatacters || !hasUpperCase || !isEqual) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
             dispatcher.forward(request, response);
         }
 
@@ -124,7 +124,7 @@ public class RegistrazioneServlet extends HttpServlet {
         l.setGenere("none");
 
         if (LettoreDAO.controlloEmail(request.getParameter("email"))){
-            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("registrazione.jsp");
             dispatcher.forward(request, response);
         }
 
