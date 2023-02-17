@@ -12,11 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e8c87b0-4df2-4fb4-8276-c3a9a3f02f6a" name="Changes" comment="Implementazione di testing &quot;Book&quot; e JavDOC">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataTier/Bookster/Book/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataTier/Bookster/Book/BookDAO.java" afterDir="false" />
+    <list default="true" id="2e8c87b0-4df2-4fb4-8276-c3a9a3f02f6a" name="Changes" comment="Modifica DB">
       <change beforePath="$PROJECT_DIR$/src/main/java/DataTier/Bookster/ConPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataTier/Bookster/ConPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LogicTier/Bookster/Book/InsertBookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LogicTier/Bookster/Book/InsertBookServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sql/BooksterDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sql/BooksterDB.sql" afterDir="false" />
     </list>
     <list id="87c435aa-265e-4919-baa7-cd649a019cfd" name="Changes by Teodoro" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -283,7 +281,7 @@
       <workItem from="1676373876780" duration="46000" />
       <workItem from="1676384747412" duration="31000" />
       <workItem from="1676475982428" duration="729000" />
-      <workItem from="1676626534528" duration="911000" />
+      <workItem from="1676626534528" duration="1008000" />
     </task>
     <task id="LOCAL-00001" summary="Prima implementazione di testing">
       <created>1676231938346</created>
@@ -327,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676328907121</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Modifica DB">
+      <created>1676627514576</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676627514576</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +354,8 @@
     <MESSAGE value="Prima implementazione di testing" />
     <MESSAGE value="Changes by Gianni" />
     <MESSAGE value="Implementazione di testing &quot;Book&quot; e JavDOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementazione di testing &quot;Book&quot; e JavDOC" />
+    <MESSAGE value="Modifica DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifica DB" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

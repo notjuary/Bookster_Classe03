@@ -60,5 +60,6 @@ public class InsertBookServlet extends HttpServlet {
         Lettore lettore = (Lettore) request.getSession().getAttribute("lettore");
 
         BookDAO.doSave(book, lettore);
+        getServletConfig().getServletContext().getRequestDispatcher("/libraryPage.jsp").forward(request, response);
     }
 }
