@@ -20,7 +20,7 @@ public class BookDAO extends HttpServlet {
     public static void doSave(Book b, Lettore lettore){
 
         try(Connection connection= ConPool.getConnection()) {
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO libro(isbn,titolo,autore,pathcopertina,pagine)VALUES(?,?,?,?,?)");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO Libro(isbn,titolo,autore,pathcopertina,pagine)VALUES(?,?,?,?,?)");
 
             ps.setString(1,b.getIsbn());
             ps.setString(2,b.getTitle());
@@ -31,9 +31,9 @@ public class BookDAO extends HttpServlet {
             if (ps.executeUpdate() != 1)
                 throw new RuntimeException("Errore nel definire il libro");
 
-            PreparedStatement psUser = connection.prepareStatement("INSERT INTO Libreria(username,,libro)VALUES(?,?)");
-            ps.setString(1,lettore.getUsername());
-            ps.setString(2,b.getIsbn());
+            PreparedStatement psUser = connection.prepareStatement("INSERT INTO Libreria(username,libro)VALUES(?,?)");
+            psUser.setString(1,lettore.getUsername());
+            psUser.setString(2,b.getIsbn());
 
             if (psUser.executeUpdate() != 1)
                 throw new RuntimeException("Errore nel definire il libro");

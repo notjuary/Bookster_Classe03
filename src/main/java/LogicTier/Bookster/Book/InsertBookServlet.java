@@ -34,6 +34,8 @@ public class InsertBookServlet extends HttpServlet {
         String author = request.getParameter("author");
         int numberPage = Integer.parseInt(request.getParameter("numberPage"));
 
+        System.out.println(isbn + " " + title + " " + author + " " + numberPage);
+
         if (isbn.length() != 13 && isbn.length() != 10)
             getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         else if (!isbn.matches("[0-9]+"))
