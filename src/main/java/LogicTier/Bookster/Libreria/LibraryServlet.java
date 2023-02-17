@@ -107,14 +107,6 @@ public class LibraryServlet extends HttpServlet {
         }
 
 
-        List<Book> libraryList = (List<Book>) session.getAttribute("libraryList");
-        if(libraryList==null){
-            libreria.setNumeroLibri(0);
-        }else {
-            libreria.setNumeroLibri(libraryList.size());
-        }
-
-        session.setAttribute("libreria",libreria);
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }
@@ -188,10 +180,7 @@ public class LibraryServlet extends HttpServlet {
         }
 
 
-        List<Book> libraryFavourite = (List<Book>) session.getAttribute("libraryFavourite");
-        Libreria lib= (Libreria) session.getAttribute("libreria");
-        libreria.setNumeroLibri(lib.getNumeroLibri()+libraryFavourite.size());
-        session.setAttribute("libreria",libreria);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("libraryPage.jsp");
         dispatcher.forward(request, response);
     }
