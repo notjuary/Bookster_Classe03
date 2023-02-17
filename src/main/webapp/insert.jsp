@@ -9,6 +9,56 @@
 
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/insert.css">
+
+  <script>
+
+    function validateFormInsert() {
+      let isbn = document.getElementById('isbn').value;
+      let title = document.getElementById('title').value;
+      let author = document.getElementById('author').value;
+      let numberPage = document.getElementById('numberPage').value;
+
+      if (isbn.length !== 13 && isbn.length !== 10) {
+        alert('Errore lungehzza iban');
+        return false;
+      } else if (!/^[0-9]+$/.test(isbn)) {
+        alert('Errore formato isbn');
+        return false;
+      }
+
+      if (title.length > 100 || title.length < 1) {
+        alert('Errore lugnhezza titolo');
+        return false;
+      } else if (!/^[a-zA-Z\s]+$/.test(title)) {
+        alert('Errore formato titolo');
+        return false;
+      }
+
+      if (author.length > 30 || author.length < 1) {
+        alert('Errore lunghezza titolo');
+        return false;
+      } else if (!/^[a-zA-Z\s0-9]+$/.test(author)) {
+        alert('Errore formato titolo');
+        return false;
+      }
+
+      if (numberPage <= 0) {
+        alert('Errore numero pagine');
+        return false;
+      } else if (!/^[0-9]+$/.test(numberPage.toString())) {
+        alert('Errore formato pagine');
+        return false;
+      }
+    }
+
+    function sendInsert() {
+      if (validateFormInsert()) {
+        document.getElementById("myForm").action = "InsertBookServlet";
+        document.getElementById("myForm").submit();
+      }
+    }
+
+  </script>
 </head>
 <body>
 
@@ -21,7 +71,7 @@
 </div>
 
 <main>
-  <form action="${pageContext.request.contextPath}/InsertBookServlet" method="get" id="formAddBook">
+  <form onsubmit="sendInsert()" method="post" id="formAddBook">
     <div>
       <label for="isbn">ISBN</label>
       <input type="text" id="isbn" name="isbn">
