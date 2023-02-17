@@ -9,7 +9,7 @@ main{
 .container{
     width: 80%;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     gap: 3rem;
     grid-template-areas:
     'library favorite'
@@ -53,4 +53,39 @@ main{
 .button--addBok:hover{
     cursor: pointer;
     background-color: var(--color-800);
+}
+
+.book{
+    display: grid;
+    grid-template-areas: 'image info';
+    grid-template-columns: 30% 70%;
+    margin: 1.5rem 0;
+}
+
+.book img{
+    max-height: 125px;
+    border: 1px solid rgba(0, 0, 0, 25%);
+}
+
+.thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: image;
+}
+
+.info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: info;
+    color: black;
+    font-size: 1rem;
+}
+
+.info .titleInfoBook{
+    font-weight: 500;
+    color: var(--color-700);
 }

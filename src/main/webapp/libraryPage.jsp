@@ -28,10 +28,32 @@
             %>
             <div class="book">
                 <div class="thumbnail">
-                    <img src="<%=b.getPath()%>">
+                    <%
+                        if(b.getPath().compareToIgnoreCase("N/A") == 0) {
+                    %>
+                        <img src="resources/noimage.jpg">
+
+                    <%
+                        } else {
+                    %>
+                        <img src="<%=b.getPath()%>">
+                    <%
+                        }
+                    %>
                 </div>
                 <div class="info">
-                    <p><%=b.getTitle()%></p>
+                    <%
+                        if(b.getTitle().length() > 50) {
+                    %>
+                        <p class="titleInfoBook"><%=b.getTitle().substring(0, 50)%>...</p>
+                    <%
+                    } else {
+                    %>
+                        <p class="titleInfoBook"><%=b.getTitle()%></p>
+                    <%
+                        }
+                    %>
+
                     <p><%=b.getAuthor()%></p>
                     <p><%=b.getPages()%></p>
                 </div>
@@ -49,16 +71,38 @@
                 if(libraryFavourite != null) {
                     for(Book b : libraryFavourite) {
             %>
-                <div class="book">
-                    <div class="thumbnail">
-                        <img src="<%=b.getPath()%>">
-                    </div>
-                    <div class="info">
-                        <p><%=b.getTitle()%></p>
-                        <p><%=b.getAuthor()%></p>
-                        <p><%=b.getPages()%></p>
-                    </div>
+            <div class="book">
+                <div class="thumbnail">
+                    <%
+                        if(b.getPath().compareToIgnoreCase("N/A") == 0) {
+                    %>
+                    <img src="resources/noimage.jpg">
+
+                    <%
+                    } else {
+                    %>
+                    <img src="<%=b.getPath()%>">
+                    <%
+                        }
+                    %>
                 </div>
+                <div class="info">
+                    <%
+                        if(b.getTitle().length() > 50) {
+                    %>
+                    <p class="titleInfoBook"><%=b.getTitle().substring(0, 50)%>...</p>
+                    <%
+                    } else {
+                    %>
+                    <p class="titleInfoBook"><%=b.getTitle()%></p>
+                    <%
+                        }
+                    %>
+
+                    <p><%=b.getAuthor()%></p>
+                    <p><%=b.getPages()%></p>
+                </div>
+            </div>
             <%
                     }
                 }
