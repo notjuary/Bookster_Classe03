@@ -4,7 +4,7 @@ La fidelizzazione e l’impronta al mondo della lettura per gli utenti vengono g
 Un aspetto importante e determinante è quello della socialità e della condivisione, dove il lettore ha la possibilità di recensire e di consigliare ad altri utenti nuovi orizzonti letterari a seconda delle proprie preferenze letterarie. Le recensioni risultano essere molto importanti ed impattanti, essendo che il lettore può esternare e condividere le proprie idee risultando aspetto di interesse e di curiosità per gli altri lettori per nuove letture. 
 Bookster dovrebbe invogliare e sensibilizzare alla lettura la popolazione mediante delle strategie innovative e premianti, ma alla stessa maniera incentivare lo scambio di idee e di pareri mediante l’ausilio delle recensioni.
 
-Nella apposita sezione DOC della repo è possibile individuare ed ottenetere l'opportuna documentazione realizzata per il rilascio di Bookster. 
+Nella apposita sezione DOC della repo è possibile individuare ed ottenere l'opportuna documentazione realizzata per il rilascio di Bookster. 
 Alla seguente pagina è possibile reperire la documentazione Javadoc di Bookster: https://grauso-t.github.io/Bookster_Classe03/ , nonché disponibile anche directory docs.
 
 Gli autori del seguente prodotto sono:
