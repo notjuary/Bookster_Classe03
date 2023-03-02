@@ -12,4 +12,10 @@ Francesco Alfonso Barlotti - (0512110169)
 Teodoro Grauso - (0512111084) - https://github.com/grauso-t
 Giovanni Manfredi - (0512112926) - https://github.com/John-64
 
-
+Boookster è stato realizzato mediante: 
+Java - Liguaggio di programmazione adottato per la realizzazione del web-app.
+Maven - Dependency Management.
+HTML5 - Utilizzato per il front-end development.
+Bootstrap - Front-end framework.
+MySQL Workbech- Utilizzato per la gestione dei dati persistenti
+SQL - Linguaggio adottato ed utilizzato per l'opportuna interrogazione e gestione dei dati persistenti
